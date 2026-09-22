@@ -230,6 +230,10 @@ nav a:hover {
   overflow: hidden;
 }
 
+.upload-toggle[data-selection="videos"] ~ .youtube-player {
+  width: min(100%, 520px);
+}
+
 .youtube-player iframe {
   display: block;
   width: 100%;
@@ -243,6 +247,11 @@ nav a:hover {
   gap: 14px;
   width: min(100%, 860px);
   margin: 0 auto;
+}
+
+.upload-toggle[data-selection="videos"] ~ .youtube-grid {
+  width: min(100%, 680px);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 }
 
 .youtube-card {
