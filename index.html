@@ -66,22 +66,26 @@
     <section id="recent-uploads" class="recent-uploads">
       <h2>Latest Episodes</h2>
       <div class="upload-toggle" data-selection="videos" role="group" aria-label="Choose upload type">
-        <button type="button" class="upload-toggle-button is-active" data-playlist="PLOwrtJSlKmyY" data-label="Recent Better Thyself video uploads" aria-pressed="true">
+        <button type="button" class="upload-toggle-button is-active" data-kind="videos" data-playlist="PLOwrtJSlKmyY" aria-pressed="true">
           Videos
         </button>
-        <button type="button" class="upload-toggle-button" data-playlist="PLduETNO9BQWI" data-label="Recent Better Thyself Shorts" aria-pressed="false">
+        <button type="button" class="upload-toggle-button" data-kind="shorts" data-playlist="PLduETNO9BQWI" aria-pressed="false">
           Shorts
         </button>
       </div>
-      <div class="youtube-frame">
+
+      <div class="youtube-player">
         <iframe
-          src="https://www.youtube.com/embed?listType=playlist&list=PLOwrtJSlKmyY&index=0&rel=0"
-          title="Recent Better Thyself YouTube uploads"
+          id="youtube-player-iframe"
+          src=""
+          title="Recent Better Thyself video uploads"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
+
+      <div id="youtube-grid" class="youtube-grid" aria-live="polite"></div>
     </section>
 
     <section id="products">
@@ -141,12 +145,83 @@
   </main>
 
 <script>
+  const API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
+  const PLAYLISTS = {
+    videos: "PLOwrtJSlKmyY",
+    shorts: "PLduETNO9BQWI"
+  };
+
   const uploadButtons = document.querySelectorAll(".upload-toggle-button");
-  const uploadFrame = document.querySelector(".youtube-frame iframe");
+  const uploadToggle = document.querySelector(".upload-toggle");
+  const playerFrame = document.getElementById("youtube-player-iframe");
+  const videoGrid = document.getElementById("youtube-grid");
+
+  function setPlayer(videoId, title) {
+    if (!videoId) return;
+    playerFrame.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+    playerFrame.title = title || "Better Thyself video";
+  }
+
+  function renderGrid(items) {
+    videoGrid.innerHTML = "";
+
+    if (!items.length) {
+      videoGrid.innerHTML = '<p class="youtube-empty">No videos available yet.</p>';
+      return;
+    }
+
+    items.forEach((item) => {
+      const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
+      const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
+      const title = item.snippet?.title || "Untitled video";
+
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "youtube-card";
+      card.dataset.videoId = videoId;
+      card.innerHTML = `
+        <img src="${thumbnail}" alt="${title}">
+        <div class="youtube-card-content">
+          <span>${title}</span>
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".youtube-card").forEach((node) => node.classList.remove("is-active"));
+        card.classList.add("is-active");
+        setPlayer(videoId, title);
+      });
+
+      videoGrid.appendChild(card);
+    });
+
+    const firstCard = videoGrid.querySelector(".youtube-card");
+    if (firstCard) {
+      firstCard.classList.add("is-active");
+      setPlayer(firstCard.dataset.videoId, firstCard.querySelector("span").textContent);
+    }
+  }
+
+  async function fetchPlaylist(kind) {
+    const playlistId = PLAYLISTS[kind];
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=12&playlistId=${playlistId}&key=${API_KEY}`;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`YouTube API request failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const items = (data.items || []).filter((item) => {
+      return item.status?.privacyStatus !== "private" && item.snippet?.title && item.snippet.title !== "Private video";
+    });
+
+    renderGrid(items);
+  }
 
   uploadButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const uploadToggle = button.parentElement;
+    button.addEventListener("click", async () => {
+      const kind = button.dataset.kind;
 
       uploadButtons.forEach((option) => {
         const isSelected = option === button;
@@ -154,11 +229,17 @@
         option.setAttribute("aria-pressed", String(isSelected));
       });
 
-      uploadToggle.dataset.selection = button.dataset.playlist === "PLOwrtJSlKmyY" ? "videos" : "shorts";
-      uploadFrame.src = `https://www.youtube.com/embed?listType=playlist&list=${button.dataset.playlist}&index=0&rel=0`;
-      uploadFrame.title = button.dataset.label;
+      uploadToggle.dataset.selection = kind;
+
+      try {
+        await fetchPlaylist(kind);
+      } catch (error) {
+        videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
+      }
     });
   });
+
+  fetchPlaylist("videos");
 
   const products = document.getElementById("products");
 
