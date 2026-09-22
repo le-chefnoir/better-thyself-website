@@ -258,6 +258,26 @@ nav a:hover {
   margin: 0 auto;
 }
 
+.videos-grid {
+  align-items: start;
+}
+
+.videos-grid .youtube-card {
+  min-height: 0;
+  height: fit-content;
+}
+
+.videos-grid .youtube-card-content {
+  min-height: 0;
+}
+
+.videos-grid .youtube-card-content span {
+  display: block;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: normal;
+}
+
 .youtube-card {
   display: flex;
   flex-direction: column;

@@ -86,7 +86,7 @@
       </div>
 
       <div class="youtube-gallery-panel is-active" data-gallery-panel="videos">
-        <div id="videos-grid" class="youtube-grid" aria-live="polite"></div>
+        <div id="videos-grid" class="youtube-grid videos-grid" aria-live="polite"></div>
         <button id="videos-load-more" class="load-more-button" type="button" aria-live="polite">
           <span class="load-more-text">Load More Videos</span>
           <span class="spinner" aria-hidden="true"></span>
@@ -207,7 +207,9 @@
       const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
       const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
       const title = item.snippet?.title || "Untitled video";
-      const shortTitle = title.length > 45 ? `${title.slice(0, 42).trim()}...` : title;
+      const displayTitle = kind === "shorts" && title.length > 45
+        ? `${title.slice(0, 42).trim()}...`
+        : title;
 
       const card = document.createElement("button");
       card.type = "button";
@@ -216,7 +218,7 @@
       card.innerHTML = `
         <img src="${thumbnail}" alt="${title}">
         <div class="youtube-card-content">
-          <span>${shortTitle}</span>
+          <span>${displayTitle}</span>
         </div>
       `;
 
