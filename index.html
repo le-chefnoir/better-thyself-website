@@ -86,6 +86,11 @@
       </div>
 
       <div id="youtube-grid" class="youtube-grid" aria-live="polite"></div>
+
+      <button id="load-more-button" class="load-more-button" type="button" aria-live="polite">
+        <span class="load-more-text">Load More</span>
+        <span class="spinner" aria-hidden="true"></span>
+      </button>
     </section>
 
     <section id="products">
@@ -103,8 +108,8 @@
 
         <div class="product-wrapper">
           <div class="product-card">
-            <img src="assets/images/1 on 1 Call.png" alt="rewireandrestore cover" class="product2-image">
-            <h3>Rewire & Restore Protocol</h3>
+            <img src="assets/images/1 on 1 Call.png" alt="1on1 call cover" class="product2-image">
+            <h3>1 on 1 No Goon Coaching</h3>
             <h4>one on one coaching sessions to help you rewire your brain and restore your life</h4>
           </div>
           <a href="#" class="buy-button">PURCHASE ON OUR STORE</a>
@@ -151,10 +156,16 @@
     shorts: "PLduETNO9BQWI"
   };
 
+  const PAGE_SIZE = 8;
+  let currentKind = "videos";
+  let nextPageToken = null;
+  let allItems = [];
+
   const uploadButtons = document.querySelectorAll(".upload-toggle-button");
   const uploadToggle = document.querySelector(".upload-toggle");
   const playerFrame = document.getElementById("youtube-player-iframe");
   const videoGrid = document.getElementById("youtube-grid");
+  const loadMoreButton = document.getElementById("load-more-button");
 
   function setPlayer(videoId, title) {
     if (!videoId) return;
@@ -162,15 +173,16 @@
     playerFrame.title = title || "Better Thyself video";
   }
 
-  function renderGrid(items) {
+  function renderVisibleItems() {
+    const visibleItems = allItems.slice(0, allItems.length);
     videoGrid.innerHTML = "";
 
-    if (!items.length) {
+    if (!visibleItems.length) {
       videoGrid.innerHTML = '<p class="youtube-empty">No videos available yet.</p>';
       return;
     }
 
-    items.forEach((item) => {
+    visibleItems.forEach((item) => {
       const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
       const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
       const title = item.snippet?.title || "Untitled video";
@@ -202,9 +214,29 @@
     }
   }
 
-  async function fetchPlaylist(kind) {
+  function setLoadMoreState(isLoading) {
+    loadMoreButton.disabled = isLoading;
+    loadMoreButton.classList.toggle("is-loading", isLoading);
+    loadMoreButton.setAttribute("aria-busy", String(isLoading));
+  }
+
+  function updateLoadMoreButton() {
+    const hasMore = Boolean(nextPageToken);
+    loadMoreButton.style.display = hasMore ? "inline-flex" : "none";
+  }
+
+  async function fetchPlaylistPage(kind, pageToken = null) {
     const playlistId = PLAYLISTS[kind];
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=12&playlistId=${playlistId}&key=${API_KEY}`;
+    const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
+
+    url.searchParams.set("part", "snippet,contentDetails,status");
+    url.searchParams.set("maxResults", String(PAGE_SIZE));
+    url.searchParams.set("playlistId", playlistId);
+    url.searchParams.set("key", API_KEY);
+
+    if (pageToken) {
+      url.searchParams.set("pageToken", pageToken);
+    }
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -216,7 +248,44 @@
       return item.status?.privacyStatus !== "private" && item.snippet?.title && item.snippet.title !== "Private video";
     });
 
-    renderGrid(items);
+    return { items, nextPageToken: data.nextPageToken || null };
+  }
+
+  async function loadMoreVideos() {
+    if (!nextPageToken) return;
+
+    setLoadMoreState(true);
+
+    try {
+      const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(currentKind, nextPageToken);
+      allItems = allItems.concat(items);
+      nextPageToken = newNextPageToken;
+      renderVisibleItems();
+      updateLoadMoreButton();
+    } catch (error) {
+      videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
+    } finally {
+      setLoadMoreState(false);
+    }
+  }
+
+  async function loadPlaylist(kind) {
+    currentKind = kind;
+    nextPageToken = null;
+    allItems = [];
+    videoGrid.innerHTML = "";
+    setLoadMoreState(false);
+
+    try {
+      const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(kind);
+      allItems = items;
+      nextPageToken = newNextPageToken;
+      renderVisibleItems();
+      updateLoadMoreButton();
+    } catch (error) {
+      videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
+      loadMoreButton.style.display = "none";
+    }
   }
 
   uploadButtons.forEach((button) => {
@@ -230,16 +299,12 @@
       });
 
       uploadToggle.dataset.selection = kind;
-
-      try {
-        await fetchPlaylist(kind);
-      } catch (error) {
-        videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
-      }
+      await loadPlaylist(kind);
     });
   });
 
-  fetchPlaylist("videos");
+  loadMoreButton.addEventListener("click", loadMoreVideos);
+  loadPlaylist("videos");
 
   const products = document.getElementById("products");
 
