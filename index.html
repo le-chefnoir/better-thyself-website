@@ -85,12 +85,21 @@
         </iframe>
       </div>
 
-      <div id="youtube-grid" class="youtube-grid" aria-live="polite"></div>
+      <div class="youtube-gallery-panel is-active" data-gallery-panel="videos">
+        <div id="videos-grid" class="youtube-grid" aria-live="polite"></div>
+        <button id="videos-load-more" class="load-more-button" type="button" aria-live="polite">
+          <span class="load-more-text">Load More Videos</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </div>
 
-      <button id="load-more-button" class="load-more-button" type="button" aria-live="polite">
-        <span class="load-more-text">Load More</span>
-        <span class="spinner" aria-hidden="true"></span>
-      </button>
+      <div class="youtube-gallery-panel" data-gallery-panel="shorts" hidden>
+        <div id="shorts-grid" class="youtube-grid shorts-grid" aria-live="polite"></div>
+        <button id="shorts-load-more" class="load-more-button" type="button" aria-live="polite">
+          <span class="load-more-text">Load More Shorts</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </div>
     </section>
 
     <section id="products">
@@ -158,14 +167,25 @@
 
   const PAGE_SIZE = 8;
   let currentKind = "videos";
-  let nextPageToken = null;
-  let allItems = [];
+  const galleryState = {
+    videos: { items: [], nextPageToken: null },
+    shorts: { items: [], nextPageToken: null }
+  };
 
   const uploadButtons = document.querySelectorAll(".upload-toggle-button");
   const uploadToggle = document.querySelector(".upload-toggle");
   const playerFrame = document.getElementById("youtube-player-iframe");
-  const videoGrid = document.getElementById("youtube-grid");
-  const loadMoreButton = document.getElementById("load-more-button");
+  const galleryPanels = document.querySelectorAll("[data-gallery-panel]");
+  const galleryElements = {
+    videos: {
+      grid: document.getElementById("videos-grid"),
+      loadMoreButton: document.getElementById("videos-load-more")
+    },
+    shorts: {
+      grid: document.getElementById("shorts-grid"),
+      loadMoreButton: document.getElementById("shorts-load-more")
+    }
+  };
 
   function setPlayer(videoId, title) {
     if (!videoId) return;
@@ -173,12 +193,13 @@
     playerFrame.title = title || "Better Thyself video";
   }
 
-  function renderVisibleItems() {
-    const visibleItems = allItems.slice(0, allItems.length);
-    videoGrid.innerHTML = "";
+  function renderVisibleItems(kind) {
+    const { grid } = galleryElements[kind];
+    const visibleItems = galleryState[kind].items;
+    grid.innerHTML = "";
 
     if (!visibleItems.length) {
-      videoGrid.innerHTML = '<p class="youtube-empty">No videos available yet.</p>';
+      grid.innerHTML = `<p class="youtube-empty">No ${kind} available yet.</p>`;
       return;
     }
 
@@ -186,6 +207,7 @@
       const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
       const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
       const title = item.snippet?.title || "Untitled video";
+      const shortTitle = title.length > 45 ? `${title.slice(0, 42).trim()}...` : title;
 
       const card = document.createElement("button");
       card.type = "button";
@@ -194,7 +216,7 @@
       card.innerHTML = `
         <img src="${thumbnail}" alt="${title}">
         <div class="youtube-card-content">
-          <span>${title}</span>
+          <span>${shortTitle}</span>
         </div>
       `;
 
@@ -204,24 +226,26 @@
         setPlayer(videoId, title);
       });
 
-      videoGrid.appendChild(card);
+      grid.appendChild(card);
     });
 
-    const firstCard = videoGrid.querySelector(".youtube-card");
+    const firstCard = grid.querySelector(".youtube-card");
     if (firstCard) {
       firstCard.classList.add("is-active");
       setPlayer(firstCard.dataset.videoId, firstCard.querySelector("span").textContent);
     }
   }
 
-  function setLoadMoreState(isLoading) {
+  function setLoadMoreState(kind, isLoading) {
+    const { loadMoreButton } = galleryElements[kind];
     loadMoreButton.disabled = isLoading;
     loadMoreButton.classList.toggle("is-loading", isLoading);
     loadMoreButton.setAttribute("aria-busy", String(isLoading));
   }
 
-  function updateLoadMoreButton() {
-    const hasMore = Boolean(nextPageToken);
+  function updateLoadMoreButton(kind) {
+    const { loadMoreButton } = galleryElements[kind];
+    const hasMore = Boolean(galleryState[kind].nextPageToken);
     loadMoreButton.style.display = hasMore ? "inline-flex" : "none";
   }
 
@@ -251,41 +275,53 @@
     return { items, nextPageToken: data.nextPageToken || null };
   }
 
-  async function loadMoreVideos() {
-    if (!nextPageToken) return;
+  async function loadMoreVideos(kind) {
+    const state = galleryState[kind];
+    const { grid } = galleryElements[kind];
+    if (!state.nextPageToken) return;
 
-    setLoadMoreState(true);
+    setLoadMoreState(kind, true);
 
     try {
-      const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(currentKind, nextPageToken);
-      allItems = allItems.concat(items);
-      nextPageToken = newNextPageToken;
-      renderVisibleItems();
-      updateLoadMoreButton();
+      const { items, nextPageToken } = await fetchPlaylistPage(kind, state.nextPageToken);
+      state.items = state.items.concat(items);
+      state.nextPageToken = nextPageToken;
+      renderVisibleItems(kind);
+      updateLoadMoreButton(kind);
     } catch (error) {
-      videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
+      grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
     } finally {
-      setLoadMoreState(false);
+      setLoadMoreState(kind, false);
     }
   }
 
   async function loadPlaylist(kind) {
     currentKind = kind;
-    nextPageToken = null;
-    allItems = [];
-    videoGrid.innerHTML = "";
-    setLoadMoreState(false);
+    const state = galleryState[kind];
+    const { grid } = galleryElements[kind];
+    state.nextPageToken = null;
+    state.items = [];
+    grid.innerHTML = "";
+    setLoadMoreState(kind, false);
 
     try {
       const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(kind);
-      allItems = items;
-      nextPageToken = newNextPageToken;
-      renderVisibleItems();
-      updateLoadMoreButton();
+      state.items = items;
+      state.nextPageToken = newNextPageToken;
+      renderVisibleItems(kind);
+      updateLoadMoreButton(kind);
     } catch (error) {
-      videoGrid.innerHTML = '<p class="youtube-empty">Unable to load videos right now.</p>';
-      loadMoreButton.style.display = "none";
+      grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
+      galleryElements[kind].loadMoreButton.style.display = "none";
     }
+  }
+
+  function showGalleryPanel(kind) {
+    galleryPanels.forEach((panel) => {
+      const isSelected = panel.dataset.galleryPanel === kind;
+      panel.classList.toggle("is-active", isSelected);
+      panel.hidden = !isSelected;
+    });
   }
 
   uploadButtons.forEach((button) => {
@@ -299,11 +335,19 @@
       });
 
       uploadToggle.dataset.selection = kind;
-      await loadPlaylist(kind);
+      showGalleryPanel(kind);
+      if (!galleryState[kind].items.length) {
+        await loadPlaylist(kind);
+      } else {
+        renderVisibleItems(kind);
+        updateLoadMoreButton(kind);
+      }
     });
   });
 
-  loadMoreButton.addEventListener("click", loadMoreVideos);
+  Object.keys(galleryElements).forEach((kind) => {
+    galleryElements[kind].loadMoreButton.addEventListener("click", () => loadMoreVideos(kind));
+  });
   loadPlaylist("videos");
 
   const products = document.getElementById("products");
