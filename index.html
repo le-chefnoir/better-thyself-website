@@ -6,6 +6,8 @@
   <title>Better Thyself — Stronger Together | Official Website</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
 
 </head>
 
@@ -372,6 +374,17 @@
   }, { threshold: 0.35 });
 
   productsObserver.observe(products);
+
+  const about = document.getElementById("about");
+
+  const aboutObserver = new IntersectionObserver((entries, observer) => {
+    if (entries[0].isIntersecting) {
+      about.classList.add("about-photo-visible");
+      observer.disconnect();
+    }
+  }, { threshold: 0.7 });
+
+  aboutObserver.observe(about);
 
   const form = document.getElementById("newsletter-form");
   const message = document.getElementById("newsletter-message");

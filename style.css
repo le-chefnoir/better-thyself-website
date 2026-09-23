@@ -26,8 +26,8 @@ html {
 
 body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
 body > :not(nav):not(main) > *,
-body > main > :not(#products) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
-body > main > :not(#products) > * {
+body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+body > main > :not(#products):not(#about) > * {
   animation: fade-in 0.8s ease both;
 }
 
@@ -44,9 +44,27 @@ body > main > :not(#products) > * {
 @media (prefers-reduced-motion: reduce) {
   body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
   body > :not(nav):not(main) > *,
-  body > main > :not(#products) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
-  body > main > :not(#products) > *,
+  body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+  body > main > :not(#products):not(#about) > *,
   #products {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#about .johnwickpfp {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#about.about-photo-visible .johnwickpfp {
+  animation: fade-in 0.8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about .johnwickpfp,
+  #about.about-photo-visible .johnwickpfp {
     animation: none;
     opacity: 1;
     transform: none;
