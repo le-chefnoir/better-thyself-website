@@ -456,7 +456,7 @@ nav a:hover {
 .product1-image {
   width: 100%;
   height: 360px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 6px;
   margin-bottom: 30px;
 }
@@ -464,7 +464,7 @@ nav a:hover {
 .product2-image {
   width: 100%;
   height: 360px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 6px;
   margin-bottom: 30px;
 }
@@ -499,7 +499,7 @@ nav a:hover {
 
 #newsletter {
   background-color: #18181a;
-  padding: 70px 20px 90px;
+  padding: 50px 20px 30px;
   text-align: center;
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
@@ -572,7 +572,6 @@ nav a:hover {
   margin-right: 0px;
 }
 
-
 #newsletter #newsletter-message {
   margin-top: 20px;
   font-weight: bold;
@@ -580,21 +579,58 @@ nav a:hover {
 }
 
 #about {
-  padding: 80px 20px;
-  text-align: center;
+  padding: 20px 40px 70px;
+  margin-top: 100px;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-bottom: 100px;
+  border-radius: 12px;
+  background-color: #18181a;
+  border: 1px solid #333;
 }
 
 #about h2 {
-  font-size: 1rem;
+  font-size: 2rem;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
-#about p {
-  font-size: 0.9rem;
-  max-width: 630px;
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  width: min(100%, 1050px);
   margin: 0 auto;
+}
+
+.about-copy {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.about-copy p {
+  text-align: left;
+  font-size: 1rem;
+  max-width: none;
+  margin: 0 0 22px;
   color: #d3d3d3;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.johnwickpfp {
+  display: block;
+  flex: 0 1 450px;
+  width: min(100%, 400px);
+  height: 500px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0;
+  max-width: 100%;
+  border-radius: 10%;
 }
 
 footer {
@@ -704,5 +740,26 @@ footer a {
 
   header h1 {
     font-size: clamp(1.75rem, 10vw, 2.5rem);
+  }
+
+  #about {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 50px 20px 65px;
+  }
+
+  #about h2 {
+    margin-bottom: 30px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .johnwickpfp {
+    width: min(100%, 360px);
+    margin: 0 auto;
   }
 }
