@@ -278,6 +278,15 @@ nav a:hover {
   word-break: normal;
 }
 
+.shorts-grid {
+  align-items: start;
+}
+
+.shorts-grid .youtube-card {
+  min-height: 0;
+  height: fit-content;
+}
+
 .youtube-card {
   display: flex;
   flex-direction: column;
