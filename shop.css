@@ -1,0 +1,349 @@
+/* another Smokin' Sexy Style . ccs  */
+/* styles only the #SHOP page needs */
+
+.shop-hero {
+  padding: 70px 20px 50px;
+}
+
+.shop-hero h1 {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: clamp(1rem, 6vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+/* products shelf */
+
+.shelf {
+  padding: 40px 20px 70px;
+  text-align: center;
+  scroll-margin-top: 60px;
+}
+
+.shelf h2 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.shelf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.shelf-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 400px);
+  padding: 25px;
+  background-color: #18181a;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+
+.shelf-card img {
+  width: 100%;
+  aspect-ratio: 378 / 472;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.shelf-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.shelf-tagline {
+  color: #d3d3d3;
+  margin-bottom: auto;   /* pushes price and button to the bottom, so both cards line up */
+  padding-bottom: 16px;
+}
+
+.shelf-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #5ac782;
+}
+
+.shelf-card .buy-button {
+  width: 100%;
+}
+
+.shelf-more {
+  margin-top: 14px;
+  color: #d3d3d3;
+  font-size: 0.95rem;
+}
+
+.hour_higlight {
+  color: #ffffff;
+}
+
+/* ---------- Product detail ---------- */
+.detail {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto 60px;
+  padding: 40px 32px;
+  background-color: #18181a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  scroll-margin-top: 70px;   /* stops the fixed nav from covering the title when you jump here */
+}
+
+.detail h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.detail-lead {
+  text-align: center;
+  color: #b0b0b0;
+  margin-bottom: 20px;
+}
+
+.video-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 620px);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background-color: #09090b;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+  color: #b0b0b0;
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.detail-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 32px 0;
+}
+
+.detail-columns h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.detail-columns ul {
+  padding-left: 20px;   /* your global reset removed the bullet indent */
+  color: #d3d3d3;
+}
+
+.detail-columns li {
+  margin-bottom: 8px;
+}
+
+.buy-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid #333;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3aa661;
+}
+
+.buy-bar .buy-button {
+  width: auto;
+  margin-top: 0;
+  padding: 12px 32px;
+}
+
+/* ---------- Proof ---------- */
+.proof {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.proof h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.proof-card {
+  padding: 24px;
+  background-color: #18181a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.proof-card p {
+  color: #d3d3d3;
+  margin-bottom: 14px;
+}
+
+.proof-card cite {
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* ---------- Trust strip ---------- */
+.trust-strip {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #18181a;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.trust-strip h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.trust-strip p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: #d3d3d3;
+  text-decoration: none;
+}
+
+.trust-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.trust-links a {
+  padding: 10px 22px;
+  border: 1px solid #cb0008;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.trust-links a:hover {
+  background-color: rgba(203, 0, 8, 0.15);
+}
+
+/* ---------- Keyboard focus + mobile ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ---------- Carousel ---------- */
+.carousel-title {
+  margin: 50px 0 20px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.carousel {
+  --slide-w: 280px;      /* width of each image */
+  --slide-gap: 20px;     /* space between images */
+  margin: 0 -20px;       /* stretches to the edges of the section */
+  overflow: hidden;
+  /* the fade on both sides: transparent -> visible -> transparent */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  list-style: none;
+}
+
+.carousel-track li {
+  flex: 0 0 auto;
+  width: var(--slide-w);
+  margin-right: var(--slide-gap);   /* margin, not gap: keeps the loop seamless */
+}
+
+.carousel-track a {
+  display: block;
+}
+
+.carousel-track img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid #333;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.carousel-track a:hover img {
+  border-color: #cb0008;
+}
+
+/* Starts moving only after the JavaScript has prepared the slides */
+.carousel.is-ready .carousel-track {
+  animation: carousel-scroll var(--duration, 30s) linear infinite;
+}
+
+.carousel.is-ready:hover .carousel-track {
+  animation-play-state: paused;   /* pauses when the mouse is over it */
+}
+
+@keyframes carousel-scroll {
+  to { transform: translateX(calc(var(--count) * (var(--slide-w) + var(--slide-gap)) * -1)); }
+}
+
+@media (max-width: 700px) {
+  .carousel {
+    --slide-w: 220px;
+    --slide-gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel { overflow-x: auto; }
+  .carousel.is-ready .carousel-track { animation: none; }
+  .carousel-track .is-clone { display: none; }
+}
+
+@media (max-width: 700px) {
+  .detail {
+    padding: 28px 18px;
+  }
+
+  .detail-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .buy-bar {
+    flex-direction: column;
+  }
+
+  .buy-bar .buy-button {
+    width: 100%;
+  }
+}

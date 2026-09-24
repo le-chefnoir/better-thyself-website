@@ -1,0 +1,14 @@
+16:9 (preferably 1280×720)images only
+keep any text big because the image shows at only 280px wide
+format: jpg and WebP under about 200 KB / use Squoosh to shrink its size
+name it in lowercase with hyphens and no spaces, like episode-12.jpg
+
+Use this block to add a new card on the carousel
+<li>
+  <a href="LINK" target="_blank" rel="noopener">
+    <img src="assets/images/carousel/NAME.jpg" alt="WHAT THE IMAGE SHOWS">
+  </a>
+</li>
+
+"LINK" for an episode: the YouTube video URL
+"LINK" for a product or news: Delete target="_blank" rel="noopener" for these so it opens in the same tab.

@@ -1,35 +1,45 @@
+<!-- "Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven." Matthew 5:16. -->
+<!-- I've build this website by myself, with only a strong belief inside my heart: If I have the power to change lives, I will use it for God. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Better Thyself — Stronger Together | Official Website</title>
+  <title>Better Thyself | Official Website</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shop.css">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
+  <link rel="icon" type=  "image/png" href="assets/images/bt favicon.png">
   <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
-
 </head>
 
 <body>
 
-    <nav>
-    <a href="#" >Home</a>
-    <a href="#products">Products</a>
-    <a href="#newsletter">Newsletter</a>
-    <a href="#about">About</a>
+  <!-- Navigation Section -->
+  <nav>
+    <a href="index.html" class="bt-logo-link" aria-label="Go to the homepage">
+      <img src="assets/images/bt logo.png" alt="BT logo" class="bt-logo-nav">
+    </a>
+    <div class="nav-links">
+      <a href="#"><b>HOME</b></a>
+      <a href="shop.html"><b>SHOP</b></a>
+      <a href="#newsletter"><b>NEWSLETTER</b></a>
+      <a href="#about"><b>ABOUT</b></a>
+    </div>
   </nav>
 
+  <!-- 2nd head of the website -->
   <header>
     <div class="header-text">
-    <img src="assets/images/bt logo.png" alt="BT logo" class="bt-logo">
+      <img src="assets/images/bt logo.png" alt="BT logo" class="bt-logo">
     <div>
       <h2>Better Thyself</h2>
     </div>
       <p>My name is Daniel & Better Thyself is a brotherhood I created to help men grow into the best versions of themselves by standing against worldly 
-        views, such as wokism, feminism, the red pill movement, and self-proclaimed gurus full of bullshit. This community helps men develop a strong character by 
-        abandoning a loser mentality and building a powerful masculine spirit, grounded in biblical teachings.</p>
-      <div class="social-links">
+      views, such as wokism, feminism, the red pill movement, and self-proclaimed gurus full of bullshit. This community helps men develop a strong character by 
+      abandoning a loser mentality and building a powerful masculine spirit, grounded in biblical teachings.</p>
+    <div class="social-links">
         <p class="social-cta">Follow us in our socials</p>
         <div class="social-icons">
           <a href="https://www.youtube.com/@better.thyself" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
@@ -60,11 +70,21 @@
 
   <main>
 
+    <!-- Hero: tells the visitor what this page is and where to go -->
+    <section class="hero shop-hero">
+      <h1>LEARN HOW TO <span class="hero-highlight">GET OUT OF THIS SHITHOLE</span> YOU'VE GOTTEN YOURSELF INTO</h1>
+      <p>Discover products and tools to guide you in your growth.</p>
+      <a href="shop.html" class="gotoproducts-button">VISIT OUR STORE</a>
+    </section>
+    
+    <!--
     <section class="hero">
-      <p>Discover products and tools to guide you in your growth, every single day.</p>
+      <p></p>
       <a href="#products" class="gotoproducts-button">Products</a>
     </section>
+    -->
 
+    <!-- YouTube Gallery -->
     <section id="recent-uploads" class="recent-uploads">
       <h2>Latest Episodes</h2>
       <div class="upload-toggle" data-selection="videos" role="group" aria-label="Choose upload type">
@@ -90,7 +110,7 @@
       <div class="youtube-gallery-panel is-active" data-gallery-panel="videos">
         <div id="videos-grid" class="youtube-grid videos-grid" aria-live="polite"></div>
         <button id="videos-load-more" class="load-more-button" type="button" aria-live="polite">
-          <span class="load-more-text">Load More Videos</span>
+          <span class="load-more-videos">Load More Videos</span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
       </div>
@@ -104,6 +124,7 @@
       </div>
     </section>
 
+    <!-- Products Section -->
     <section id="products">
       <h2>Products and Services</h2>
 
@@ -114,20 +135,21 @@
             <h3>Breaking the Chains</h3>
             <h4>a no bullshit short guide for lazy people to leave pornography in the past</h4>
         </div>
-        <a href="#" class="buy-button">PURCHASE ON OUR STORE</a>        
+        <a href="shop.html" class="buy-button">VISIT OUR STORE</a>        
       </div>
 
         <div class="product-wrapper">
           <div class="product-card">
             <img src="assets/images/1 on 1 Call.png" alt="1on1 call cover" class="product2-image">
             <h3>1 on 1 No Goon Coaching</h3>
-            <h4>one on one coaching sessions to help you rewire your brain and restore your life</h4>
+            <h4>coaching sessions to help you rewire your brain and restore your life</h4>
           </div>
-          <a href="#" class="buy-button">PURCHASE ON OUR STORE</a>
+          <a href="shop.html" class="buy-button">VISIT OUR STORE</a>
         </div>
       </div>
     </section>
 
+    <!-- Brotherhood's Newsletter: Iron Sharpens Iron -->
     <section id="newsletter">
       <h2>Join Iron Sharpens Iron, our newsletter</h2>
       <p>Our weekly briefing from bros working to better themselves. We share real wins
@@ -140,7 +162,7 @@
 
         <label class="newsletter-consent">
           <input type="checkbox" name="OPT_IN" value="1" required>
-          I consent to the terms of the <a href="privacy.html">Privacy Policy</a>.
+          I consent to the terms of the <a href="privacy.html"> <span class="privacy-highlight"> Privacy Policy</span></a>.
         </label>
 
         <input type="text" name="email_address_check" value="" style="display:none" tabindex="-1" autocomplete="off">
@@ -152,271 +174,279 @@
       <p id="newsletter-message"></p>
     </section>
 
+    <!-- Who is this MF? -->
     <section id="about">
       <h2>About Me</h2>
       <div class="about-content">
         <img src="assets/images/me as john wick fr.png" alt="Daniel portrait" class="johnwickpfp">
         <div class="about-copy">
-          <p>I’m no developer, big marketing guy, YouTube star, or born into a rich family. I’m just a guy who’s sick and tired of seeing how this world is getting shittier every day and disgusted by so much bullshit happening around us. And because I’m disgusted by all of it, I’m here to try to save as many men as possible from this satanic world.</p>
+          <p>I’m no big marketing guy, YouTube star, or born into a rich family. I’m just a guy who’s sick and tired of seeing how this world is getting shittier every day and disgusted by so much bullshit happening around us. And because I’m disgusted by all of it, I’m here to try to save as many men as possible from this satanic world.</p>
 
-         <p>I am self-taught, building this brand from scratch, solving one problem at a time. Better Thyself was born out of this core belief: Nothing that comes from the world is good, yet I found a way to live in peace and have a meaningful life, and my desire is to share this with as many men as possible through this brotherhood.</p>
+         <p>I am self-taught, building this brand from scratch, solving one problem at a time. Better Thyself was born out of this core belief: Nothing that comes from the world is good, and yet, I found a way to live in peace and have a meaningful life, and my desire is to share this with you through this brotherhood.</p>
       
          <p>My mission is simple: To make men strong once again, by delivering real self-improvement content with no BS, no scams, no soft crap, no weakness.</p>
       
-          <p>If you’re sick and tired of this world too, or of yourself for being a miserable pussy, follow me. We'll make this change, as brothers.</p>
+          <p>If you’re sick and tired of this world too, or of yourself for being a miserable pussy, follow me. We'll change that, as brothers in God.</p>
         </div>
       </div>
     </section>
 
   </main>
 
-<script>
-  const API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
-  const PLAYLISTS = {
-    videos: "PLOwrtJSlKmyY",
-    shorts: "PLduETNO9BQWI"
-  };
+  <!-- Javascript Section -->
+  <script>
+    const API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
+    const PLAYLISTS = {
+      videos: "PLOwrtJSlKmyY",
+      shorts: "PLduETNO9BQWI"
+    };
 
-  const PAGE_SIZE = 8;
-  let currentKind = "videos";
-  const galleryState = {
-    videos: { items: [], nextPageToken: null },
-    shorts: { items: [], nextPageToken: null }
-  };
+    const PAGE_SIZE = 8;
+    let currentKind = "videos";
+    const galleryState = {
+      videos: { items: [], nextPageToken: null },
+      shorts: { items: [], nextPageToken: null }
+    };
 
-  const uploadButtons = document.querySelectorAll(".upload-toggle-button");
-  const uploadToggle = document.querySelector(".upload-toggle");
-  const playerFrame = document.getElementById("youtube-player-iframe");
-  const galleryPanels = document.querySelectorAll("[data-gallery-panel]");
-  const galleryElements = {
-    videos: {
-      grid: document.getElementById("videos-grid"),
-      loadMoreButton: document.getElementById("videos-load-more")
-    },
-    shorts: {
-      grid: document.getElementById("shorts-grid"),
-      loadMoreButton: document.getElementById("shorts-load-more")
-    }
-  };
+    const uploadButtons = document.querySelectorAll(".upload-toggle-button");
+    const uploadToggle = document.querySelector(".upload-toggle");
+    const playerFrame = document.getElementById("youtube-player-iframe");
+    const galleryPanels = document.querySelectorAll("[data-gallery-panel]");
+    const galleryElements = {
+      videos: {
+        grid: document.getElementById("videos-grid"),
+        loadMoreButton: document.getElementById("videos-load-more")
+      },
+      shorts: {
+        grid: document.getElementById("shorts-grid"),
+        loadMoreButton: document.getElementById("shorts-load-more")
+      }
+    };
 
-  function setPlayer(videoId, title) {
-    if (!videoId) return;
-    playerFrame.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
-    playerFrame.title = title || "Better Thyself video";
-  }
-
-  function renderVisibleItems(kind) {
-    const { grid } = galleryElements[kind];
-    const visibleItems = galleryState[kind].items;
-    grid.innerHTML = "";
-
-    if (!visibleItems.length) {
-      grid.innerHTML = `<p class="youtube-empty">No ${kind} available yet.</p>`;
-      return;
+    function setPlayer(videoId, title) {
+      if (!videoId) return;
+      playerFrame.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+      playerFrame.title = title || "Better Thyself video";
     }
 
-    visibleItems.forEach((item) => {
-      const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
-      const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
-      const title = item.snippet?.title || "Untitled video";
-      const displayTitle = kind === "shorts" && title.length > 45
-        ? `${title.slice(0, 42).trim()}...`
-        : title;
+    function renderVisibleItems(kind) {
+      const { grid } = galleryElements[kind];
+      const visibleItems = galleryState[kind].items;
+      grid.innerHTML = "";
 
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "youtube-card";
-      card.dataset.videoId = videoId;
-      card.innerHTML = `
-        <img src="${thumbnail}" alt="${title}">
-        <div class="youtube-card-content">
-          <span>${displayTitle}</span>
-        </div>
-      `;
+      if (!visibleItems.length) {
+        grid.innerHTML = `<p class="youtube-empty">No ${kind} available yet.</p>`;
+        return;
+      }
 
-      card.addEventListener("click", () => {
-        document.querySelectorAll(".youtube-card").forEach((node) => node.classList.remove("is-active"));
-        card.classList.add("is-active");
-        setPlayer(videoId, title);
+      visibleItems.forEach((item) => {
+        const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
+        const thumbnail = item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url;
+        const title = item.snippet?.title || "Untitled video";
+        const displayTitle = kind === "shorts" && title.length > 45
+          ? `${title.slice(0, 42).trim()}...`
+          : title;
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "youtube-card";
+        card.dataset.videoId = videoId;
+        card.innerHTML = `
+          <img src="${thumbnail}" alt="${title}">
+          <div class="youtube-card-content">
+            <span>${displayTitle}</span>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          document.querySelectorAll(".youtube-card").forEach((node) => node.classList.remove("is-active"));
+          card.classList.add("is-active");
+          setPlayer(videoId, title);
+        });
+
+        grid.appendChild(card);
       });
 
-      grid.appendChild(card);
-    });
-
-    const firstCard = grid.querySelector(".youtube-card");
-    if (firstCard) {
-      firstCard.classList.add("is-active");
-      setPlayer(firstCard.dataset.videoId, firstCard.querySelector("span").textContent);
-    }
-  }
-
-  function setLoadMoreState(kind, isLoading) {
-    const { loadMoreButton } = galleryElements[kind];
-    loadMoreButton.disabled = isLoading;
-    loadMoreButton.classList.toggle("is-loading", isLoading);
-    loadMoreButton.setAttribute("aria-busy", String(isLoading));
-  }
-
-  function updateLoadMoreButton(kind) {
-    const { loadMoreButton } = galleryElements[kind];
-    const hasMore = Boolean(galleryState[kind].nextPageToken);
-    loadMoreButton.style.display = hasMore ? "inline-flex" : "none";
-  }
-
-  async function fetchPlaylistPage(kind, pageToken = null) {
-    const playlistId = PLAYLISTS[kind];
-    const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
-
-    url.searchParams.set("part", "snippet,contentDetails,status");
-    url.searchParams.set("maxResults", String(PAGE_SIZE));
-    url.searchParams.set("playlistId", playlistId);
-    url.searchParams.set("key", API_KEY);
-
-    if (pageToken) {
-      url.searchParams.set("pageToken", pageToken);
+      const firstCard = grid.querySelector(".youtube-card");
+      if (firstCard) {
+        firstCard.classList.add("is-active");
+        setPlayer(firstCard.dataset.videoId, firstCard.querySelector("span").textContent);
+      }
     }
 
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`YouTube API request failed: ${response.status}`);
+    function setLoadMoreState(kind, isLoading) {
+      const { loadMoreButton } = galleryElements[kind];
+      loadMoreButton.disabled = isLoading;
+      loadMoreButton.classList.toggle("is-loading", isLoading);
+      loadMoreButton.setAttribute("aria-busy", String(isLoading));
     }
 
-    const data = await response.json();
-    const items = (data.items || []).filter((item) => {
-      return item.status?.privacyStatus !== "private" && item.snippet?.title && item.snippet.title !== "Private video";
-    });
-
-    return { items, nextPageToken: data.nextPageToken || null };
-  }
-
-  async function loadMoreVideos(kind) {
-    const state = galleryState[kind];
-    const { grid } = galleryElements[kind];
-    if (!state.nextPageToken) return;
-
-    setLoadMoreState(kind, true);
-
-    try {
-      const { items, nextPageToken } = await fetchPlaylistPage(kind, state.nextPageToken);
-      state.items = state.items.concat(items);
-      state.nextPageToken = nextPageToken;
-      renderVisibleItems(kind);
-      updateLoadMoreButton(kind);
-    } catch (error) {
-      grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
-    } finally {
-      setLoadMoreState(kind, false);
+    function updateLoadMoreButton(kind) {
+      const { loadMoreButton } = galleryElements[kind];
+      const hasMore = Boolean(galleryState[kind].nextPageToken);
+      loadMoreButton.style.display = hasMore ? "inline-flex" : "none";
     }
-  }
 
-  async function loadPlaylist(kind) {
-    currentKind = kind;
-    const state = galleryState[kind];
-    const { grid } = galleryElements[kind];
-    state.nextPageToken = null;
-    state.items = [];
-    grid.innerHTML = "";
-    setLoadMoreState(kind, false);
+    async function fetchPlaylistPage(kind, pageToken = null) {
+      const playlistId = PLAYLISTS[kind];
+      const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
 
-    try {
-      const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(kind);
-      state.items = items;
-      state.nextPageToken = newNextPageToken;
-      renderVisibleItems(kind);
-      updateLoadMoreButton(kind);
-    } catch (error) {
-      grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
-      galleryElements[kind].loadMoreButton.style.display = "none";
-    }
-  }
+      url.searchParams.set("part", "snippet,contentDetails,status");
+      url.searchParams.set("maxResults", String(PAGE_SIZE));
+      url.searchParams.set("playlistId", playlistId);
+      url.searchParams.set("key", API_KEY);
 
-  function showGalleryPanel(kind) {
-    galleryPanels.forEach((panel) => {
-      const isSelected = panel.dataset.galleryPanel === kind;
-      panel.classList.toggle("is-active", isSelected);
-      panel.hidden = !isSelected;
-    });
-  }
+      if (pageToken) {
+        url.searchParams.set("pageToken", pageToken);
+      }
 
-  uploadButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
-      const kind = button.dataset.kind;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`YouTube API request failed: ${response.status}`);
+      }
 
-      uploadButtons.forEach((option) => {
-        const isSelected = option === button;
-        option.classList.toggle("is-active", isSelected);
-        option.setAttribute("aria-pressed", String(isSelected));
+      const data = await response.json();
+      const items = (data.items || []).filter((item) => {
+        return item.status?.privacyStatus !== "private" && item.snippet?.title && item.snippet.title !== "Private video";
       });
 
-      uploadToggle.dataset.selection = kind;
-      showGalleryPanel(kind);
-      if (!galleryState[kind].items.length) {
-        await loadPlaylist(kind);
-      } else {
+      return { items, nextPageToken: data.nextPageToken || null };
+    }
+
+    async function loadMoreVideos(kind) {
+      const state = galleryState[kind];
+      const { grid } = galleryElements[kind];
+      if (!state.nextPageToken) return;
+
+      setLoadMoreState(kind, true);
+
+      try {
+        const { items, nextPageToken } = await fetchPlaylistPage(kind, state.nextPageToken);
+        state.items = state.items.concat(items);
+        state.nextPageToken = nextPageToken;
         renderVisibleItems(kind);
         updateLoadMoreButton(kind);
+      } catch (error) {
+        grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
+      } finally {
+        setLoadMoreState(kind, false);
+      }
+    }
+
+    async function loadPlaylist(kind) {
+      currentKind = kind;
+      const state = galleryState[kind];
+      const { grid } = galleryElements[kind];
+      state.nextPageToken = null;
+      state.items = [];
+      grid.innerHTML = "";
+      setLoadMoreState(kind, false);
+
+      try {
+        const { items, nextPageToken: newNextPageToken } = await fetchPlaylistPage(kind);
+        state.items = items;
+        state.nextPageToken = newNextPageToken;
+        renderVisibleItems(kind);
+        updateLoadMoreButton(kind);
+      } catch (error) {
+        grid.innerHTML = `<p class="youtube-empty">Unable to load ${kind} right now.</p>`;
+        galleryElements[kind].loadMoreButton.style.display = "none";
+      }
+    }
+
+    function showGalleryPanel(kind) {
+      galleryPanels.forEach((panel) => {
+        const isSelected = panel.dataset.galleryPanel === kind;
+        panel.classList.toggle("is-active", isSelected);
+        panel.hidden = !isSelected;
+      });
+    }
+
+    uploadButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const kind = button.dataset.kind;
+
+        uploadButtons.forEach((option) => {
+          const isSelected = option === button;
+          option.classList.toggle("is-active", isSelected);
+          option.setAttribute("aria-pressed", String(isSelected));
+        });
+
+        uploadToggle.dataset.selection = kind;
+        showGalleryPanel(kind);
+        if (!galleryState[kind].items.length) {
+          await loadPlaylist(kind);
+        } else {
+          renderVisibleItems(kind);
+          updateLoadMoreButton(kind);
+        }
+      });
+    });
+
+    Object.keys(galleryElements).forEach((kind) => {
+      galleryElements[kind].loadMoreButton.addEventListener("click", () => loadMoreVideos(kind));
+    });
+    loadPlaylist("videos");
+
+    const products = document.getElementById("products");
+
+    const productsObserver = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        products.classList.add("is-visible");
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 });
+
+    productsObserver.observe(products);
+
+    const about = document.getElementById("about");
+
+    const aboutObserver = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        about.classList.add("about-photo-visible");
+        observer.disconnect();
+      }
+    }, {
+      threshold: window.matchMedia("(max-width: 700px)").matches ? 0.2 : 0.7
+    });
+
+    aboutObserver.observe(about);
+
+    const form = document.getElementById("newsletter-form");
+    const message = document.getElementById("newsletter-message");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      message.className = "newsletter-status sending";
+      message.textContent = "Joining to the club...";
+
+      try {
+        await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          mode: "no-cors"
+        });
+
+        form.reset();
+        message.textContent = "You're officially in. Welcome to the Iron Sharpens Iron news!";
+      } catch (error) {
+        message.className = "newsletter-status error";
+        message.textContent =
+        "We couldn't complete your subscription. Please try again.";
       }
     });
-  });
+  </script>
 
-  Object.keys(galleryElements).forEach((kind) => {
-    galleryElements[kind].loadMoreButton.addEventListener("click", () => loadMoreVideos(kind));
-  });
-  loadPlaylist("videos");
-
-  const products = document.getElementById("products");
-
-  const productsObserver = new IntersectionObserver((entries, observer) => {
-    if (entries[0].isIntersecting) {
-      products.classList.add("is-visible");
-      observer.disconnect();
-    }
-  }, { threshold: 0.35 });
-
-  productsObserver.observe(products);
-
-  const about = document.getElementById("about");
-
-  const aboutObserver = new IntersectionObserver((entries, observer) => {
-    if (entries[0].isIntersecting) {
-      about.classList.add("about-photo-visible");
-      observer.disconnect();
-    }
-  }, { threshold: 0.7 });
-
-  aboutObserver.observe(about);
-
-  const form = document.getElementById("newsletter-form");
-  const message = document.getElementById("newsletter-message");
-
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    message.className = "newsletter-status sending";
-    message.textContent = "Joining to the club...";
-
-    try {
-      await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        mode: "no-cors"
-      });
-
-      form.reset();
-      message.textContent = "You're officially in. Welcome to the Iron Sharpens Iron news!";
-    } catch (error) {
-      message.className = "newsletter-status error";
-      message.textContent =
-       "We couldn't complete your subscription. Please try again.";
-    }
-  });
-</script>
-
+  <!-- Feet of the website -->
   <footer>
     <p>&copy; 2026 Better Thyself. All rights reserved.</p>
     <p><a href="privacy.html">Privacy Policy</a></p>
+    <p><a href="https://github.com/le-chefnoir/better-thyself-website">This Website's GitHub Repo</a></p>
   </footer>
 
 </body>
 
 </html>
+
+<!-- made by Daniel Milczarksi ಠ_ಠ-->

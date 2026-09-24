@@ -1,3 +1,5 @@
+/* Smokin' Sexy Style . ccs  */
+
 @font-face {
   font-family: 'Road Rage';
   src: url('assets/fonts/Road_Rage.otf') format('opentype');
@@ -76,6 +78,7 @@ body {
   color: #ffffff;
   background-color: #09090b;
   line-height: 1.6;
+  padding-top: 50px;
 }
 
 header {
@@ -86,7 +89,7 @@ header {
   margin-top: 30px;
   margin-left: 90px;
   margin-right: 90px;
-  border-radius: 12px;
+  border-radius: 7px;
   background-color: #18181a;
   border: 1px solid #333;
 }
@@ -132,10 +135,18 @@ header p {
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 0px;
-  padding: 10px;
+  min-height: 50px;
+  padding: 6px;
+  overflow-x: auto;
+  background-color: #09090b;
   border-bottom: 1px solid #333;
 }
 
@@ -148,6 +159,34 @@ nav a {
   letter-spacing: 0.5px;
   border-radius: 10px;
   transition: background-color 0.2s ease;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.bt-logo-nav {
+  display: block;
+  width: 150px;
+  height: 40px;
+}
+
+.bt-logo-link {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+  line-height: 0;
+  transition: none;
+}
+
+.bt-logo-link:hover {
+  background-color: transparent;
 }
 
 nav a:hover {
@@ -164,6 +203,13 @@ nav a:hover {
   max-width: 800px;
   margin: 0 auto 30px auto;
   color: #faf9f9d7;
+}
+
+.hero-highlight {
+  color: #cb0008;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .gotoproducts-button {
@@ -248,7 +294,7 @@ nav a:hover {
   margin: 0 auto 16px;
   background-color: #18181a;
   border: 1px solid #333;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -256,7 +302,6 @@ nav a:hover {
   display: block;
   width: 100%;
   height: 100%;
-  border: 0;
 }
 
 .youtube-gallery-panel {
@@ -314,7 +359,7 @@ nav a:hover {
   flex-direction: column;
   padding: 0;
   border: 1px solid #333;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   background-color: #18181a;
   color: #ffffff;
@@ -449,8 +494,8 @@ nav a:hover {
   border: 1px solid #333;
   border-radius: 6px;
   padding: 25px 25px;
-  width: 100%;
-  height: 560px;
+  width: 430px;
+  height: 670px;
   text-align: left;
 }
 
@@ -476,16 +521,16 @@ nav a:hover {
 }
 
 .product1-image {
-  width: 100%;
-  height: 360px;
+  width: 378px;
+  height: 472px;
   object-fit: fill;
   border-radius: 6px;
   margin-bottom: 30px;
 }
 
 .product2-image {
-  width: 100%;
-  height: 360px;
+  width: 378px;
+  height: 472px;
   object-fit: fill;
   border-radius: 6px;
   margin-bottom: 30px;
@@ -544,6 +589,10 @@ nav a:hover {
   color: #d3d3d3;
 }
 
+#newsletter a {
+  text-decoration: none;
+}
+
 #newsletter form {
   display: flex;
   flex-direction: column;
@@ -580,7 +629,6 @@ nav a:hover {
   background-color: #cb0007de;
 }
 
-
 .newsletter-consent {
   width: min(100%, 600px);
   flex-basis: center;
@@ -598,6 +646,11 @@ nav a:hover {
   margin-top: 20px;
   font-weight: bold;
   color: #ffffff;
+}
+
+.privacy-highlight{
+  color: #d3d3d3;
+  font-weight: bold;
 }
 
 #about {
@@ -698,7 +751,8 @@ footer {
 
 .policy a,
 footer a {
-  color: #ffffff;
+  color: #b0b0b0;
+  text-decoration: none;
 }
 
 .policy p {
