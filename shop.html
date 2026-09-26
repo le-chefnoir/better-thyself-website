@@ -1,286 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop | Better Thyself</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="shop.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
-  <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shop | Better Thyself</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="shop.css">
+        <link rel="stylesheet" href="theme.css">
+            <link rel="stylesheet" href="mediastyle.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <!-- navigation section -->
-    <nav>
-         <a href="index.html" class="bt-logo-link" aria-label="Go to the homepage">
-             <img src="assets/images/bt logo.png" alt="BT logo" class="bt-logo-nav">
-         </a>
-     <div class="nav-links">
-       <a href="index.html"><b>HOME</b></a>
-       <a href="#"><b>SHOP</b></a>
-       <a href="index.html#newsletter"><b>NEWSLETTER</b></a>
-       <a href="index.html#about"><b>ABOUT</b></a>
-     </div>
-    </nav>
+        <!-- navigation section -->
+        <nav class="nav">
+        <div class="nav-links">
+        <a href="index.html"><b>Home</b></a>
+        <a href="#"><b>Store</b></a>
+        <a href="index.html#newsletter"><b>Newsletter</b></a>
+        <a href="index.html#about"><b>About</b></a>
+        </div>
+        </nav>
 
-    <main>
+        <main>
 
-        <!-- Trust strip: for visitors who aren't ready to buy yet -->
-        <section class="trust-strip">
+            <!-- Trust strip: for visitors who aren't ready to buy yet -->
+            <section class="trust-strip">
 
-            <h2>NOT READY TO BUY YET? YOU CAN START FREE.</h2>
-            <p>watch all Episodes, join the Brotherhood, get our Weekly Newsletter & more to help you succeed:  </p>
-            <div class="trust-links">
-                <a href="https://www.youtube.com/@better.thyself" target="_blank" rel="noopener">Watch on YouTube</a>
-                <a href="https://discord.gg/x9ccMA7rgz" target="_blank" rel="noopener">Join our Brotherhood's Discord</a>
-                <a href="index.html#newsletter">Get our Newsletter</a>
+                <h2>NOT READY TO BUY YET? YOU CAN <span>START FREE.</span></h2>
+                <p>watch all Episodes, join the Brotherhood, get our Weekly Newsletter & more to help you succeed:  </p>
+                <div class="trust-links">
+                    <a href="https://www.youtube.com/@better.thyself" target="_blank" rel="noopener">Watch on YouTube</a>
+                    <a href="https://discord.gg/x9ccMA7rgz" target="_blank" rel="noopener">Join our Brotherhood's Discord</a>
+                    <a href="index.html#newsletter">Get our Newsletter</a>
+                </div>
+                
+                <!--carousel of informations baby -->
+
+                <h3 class="carousel-title">LATEST FROM THE BROTHERHOOD</h3>
+                <p class="carousel-hint">
+                    <span class="carousel-hint-label">← Drag to browse →</span>
+                    <span class="carousel-hint-track" aria-hidden="true">
+                        <span><img src="assets/images/bt favicon.png" alt=""></span>
+                    </span>
+                </p>
+                <div class="carousel" aria-label="Latest news, products and episodes">
+                    <ul class="carousel-track">
+                    <!-- NEWEST FIRST! To add a slide, copy one <li>...</li> block -->
+                    <li>
+                        <a>
+                        <img src="assets/images/carousel/news_card1.jpg" alt="my setup"> <!-- change inside "alt=" the description of what's showing-->
+                        <p>This brand was built here... what's your excuse, mf?</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                        <img src="assets/images/carousel/news_card2.jpg" alt="website launch">
+                        <p>OUR WEBSITE IS OFFICIALLY LIVE!!!</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#guide">
+                        <img src="assets/images/carousel/product_card1.jpg" alt="breaking the chains">
+                        <p>If you're too lazy to quit porn, this book is for you</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#coaching">
+                        <img src="assets/images/carousel/product_card2.jpg" alt="1 on 1 coach">
+                        <p>Get a session to quit porn for good</p>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.youtube.com/@better.thyself" target="_blank" rel="noopener">
+                        <img src="assets/images/carousel/slide-1.jpg" alt="latest video">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="free-resources.html" aria-label="YouTube" target="_blank" rel="noopener">
+                        <img src="assets/images/carousel/product_card3.jpg" alt="freeversion btc">
+                        <p>Try out the free version of Breaking the Chains!</p>
+                        </a>
+                    </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!-- shelf section: both products at a glance -->
+            <section id="shelf" class="shelf">
+            <h2>Products and Services</h2>  
+            <div class="shelf-grid">
+                <article class="shelf-card">
+                <img src="assets/images/1.png" alt="Breaking the Chains cover">
+                <h3>Breaking the Chains</h3>
+                <p class="shelf-tagline">a no bullshit short guide for lazy people to leave pornography in the past</p>
+                <p class="shelf-price">$9.99</p> 
+                <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">PURCHASE ON OUR STORE</a>
+                <a href="#guide" class="shelf-more">Watch the video first</a>
+                </article>
+
+                <article class="shelf-card">
+                <img src="assets/images/1 on 1 Call.png" alt="1 on 1 No Goon Coaching cover">
+                <h3>1 on 1 No Goon Coaching</h3>
+                <p class="shelf-tagline">coaching sessions to help you rewire your brain and restore your life</p>
+                <p class="shelf-price">$39.99 <span class="hour_higlight"> /h</span></p>
+                <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">PURCHASE ON OUR STORE</a>
+                <a href="#coaching" class="shelf-more">Watch the video first</a>
+                </article>
             </div>
-            
-            <!--carousel of informations baby -->
-            <h3 class="carousel-title">Latest from our Brotherhood</h3>
-            <div class="carousel" aria-label="Latest news, products and episodes">
-                <ul class="carousel-track">
-                <!-- NEWEST FIRST! To add a slide, copy one <li>...</li> block -->
-                <li>
-                    <a href="https://www.youtube.com/@better.thyself" target="_blank" rel="noopener">
-                    <img src="assets/images/carousel/slide-1.jpg" alt="Describe what this image shows">
-                    </a>
-                </li>
-                <li>
-                    <a href="#guide">
-                    <img src="assets/images/carousel/product_card1.jpg" alt="breaking the chains">
-                    <p>If you're too lazy to quit porn, this book is for you</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#coaching">
-                    <img src="assets/images/carousel/product_card2.jpg" alt="1 on 1 coach">
-                    <p>Get a session to quit porn for good</p>
-                    </a>
-                </li>
+            </section>
+
+            <!-- Detail for Breaking the Chains -->
+            <section id="guide" class="detail">
+            <h2>Breaking the Chains</h2>
+            <p class="detail-lead">If you're new here, watch this first.</p>
+
+            <div class="video-frame" data-video-id="8sTX3zoAbno" data-title="Breaking the Chains video">
+                <span>Coming soon...</span>
+            </div>
+
+            <div class="detail-columns">
+                <div>
+                <h3>What you get</h3>
+                <ul>
+                    <li>A book you can finish in just one sitting</li>
+                    <li>Idiot-proof steps to leave porn for good</li>
                 </ul>
+                </div>
+                <div>
+                <h3>Who it's for</h3>
+                <ul>
+                    <li>Who are tired of not being able to control your one-eyed snake</li>
+                    <li>Anyone who is tired of relapsing every single night</li>
+                </ul>
+                </div>
             </div>
 
-        </section>
-
-        <!-- shelf section: both products at a glance -->
-        <section id="shelf" class="shelf">
-        <h2>Products and Services</h2>
-        <div class="shelf-grid">
-            <article class="shelf-card">
-            <img src="assets/images/1.png" alt="Breaking the Chains cover">
-            <h3>Breaking the Chains</h3>
-            <p class="shelf-tagline">a no bullshit short guide for lazy people to leave pornography in the past</p>
-            <p class="shelf-price">$9.99</p> 
-            <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">PURCHASE ON OUR STORE</a>
-            <a href="#guide" class="shelf-more">Watch the video first</a>
-            </article>
-
-            <article class="shelf-card">
-            <img src="assets/images/1 on 1 Call.png" alt="1 on 1 No Goon Coaching cover">
-            <h3>1 on 1 No Goon Coaching</h3>
-            <p class="shelf-tagline">coaching sessions to help you rewire your brain and restore your life</p>
-            <p class="shelf-price">$39.99 <span class="hour_higlight"> /h</span></p>
-            <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">PURCHASE ON OUR STORE</a>
-            <a href="#coaching" class="shelf-more">Watch the video first</a>
-            </article>
-        </div>
-        </section>
-
-        <!-- Detail for Breaking the Chains -->
-        <section id="guide" class="detail">
-        <h2>Breaking the Chains</h2>
-        <p class="detail-lead">If you're new here, watch this first.</p>
-
-        <div class="video-frame" data-video-id="8sTX3zoAbno" data-title="Breaking the Chains video">
-            <span>Coming soon...</span>
-        </div>
-
-        <div class="detail-columns">
-            <div>
-            <h3>What you get</h3>
-            <ul>
-                <li>A book you can finish in just one sitting</li>
-                <li>Idiot-proof steps to leave porn for good</li>
-            </ul>
+            <div class="buy-bar">
+                <span class="price">$9.99</span>
+                <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">GET THE GUIDE</a>
             </div>
-            <div>
-            <h3>Who it's for</h3>
-            <ul>
-                <li>Who are tired of not being able to control your one-eyed snake</li>
-                <li>Anyone who is tired of relapsing every single night</li>
-            </ul>
+            </section>
+
+            <!-- Detail for 1 on 1 coaching -->
+            <section id="coaching" class="detail">
+            <h2>1 on 1 No Goon Coaching</h2>
+            <p class="detail-lead">If you're new here, watch this first.</p>
+
+            <!-- #EDIT: paste the YouTube video ID (the part after v=) in data-video-id -->
+            <div class="video-frame" data-video-id="REPLACE_WITH_VIDEO_ID" data-title="1 on 1 No Goon Coaching">
+                <span>Coming soon...</span>
             </div>
-        </div>
 
-        <div class="buy-bar">
-            <span class="price">$9.99</span>
-            <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">GET THE GUIDE</a>
-        </div>
-        </section>
-
-        <!-- Detail for 1 on 1 coaching -->
-        <section id="coaching" class="detail">
-        <h2>1 on 1 No Goon Coaching</h2>
-        <p class="detail-lead">If you're new here, watch this first.</p>
-
-        <!-- #EDIT: paste the YouTube video ID (the part after v=) in data-video-id -->
-        <div class="video-frame" data-video-id="REPLACE_WITH_VIDEO_ID" data-title="1 on 1 No Goon Coaching">
-            <span>Coming soon...</span>
-        </div>
-
-        <div class="detail-columns">
-            <div>
-            <h3>What you get</h3>
-            <ul>
-                <li>A laid back and casual conversation about your problems with porn</li>
-                <li>A brother's hand to overcome this problem (that line was a bit sus, ngl)</li>
-            </ul>
+            <div class="detail-columns">
+                <div>
+                <h3>What you get</h3>
+                <ul>
+                    <li>A laid back and casual conversation about your problems with porn</li>
+                    <li>A brother's hand to overcome this problem (that line was a bit sus, ngl)</li>
+                </ul>
+                </div>
+                <div>
+                <h3>Who it's for</h3>
+                <ul>
+                    <li>Who are in a rock bottom situation that can't find a way out</li>
+                    <li>Anyone who wants a 97% success rate method</li>
+                </ul>
+                </div>
             </div>
-            <div>
-            <h3>Who it's for</h3>
-            <ul>
-                <li>Who are in a rock bottom situation that can't find a way out</li>
-                <li>Anyone who wants a 97% success rate method</li>
-            </ul>
+
+            <div class="buy-bar">
+                <span class="price">$39.99 <span class="hour_higlight"> /h</span></span>
+                <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">GET THE COACHING EXPERIENCE</a>
             </div>
-        </div>
+            </section>
 
-        <div class="buy-bar">
-            <span class="price">$39.99 <span class="hour_higlight"> /h</span></span>
-            <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">GET THE COACHING EXPERIENCE</a>
-        </div>
-        </section>
+            <!-- honest, no fake testimonials -->
+            <section id="trust-message" class="proof">
+                <h2>We're Just Getting Started</h2>
+                <p>We don't have testimonials to show off and brag about yet... Better Thyself is a new brotherhood. If our books or coaching sessions help you, we'd love to hear about it, and we'll be proud to share your story here (with your permission obviously).</p>
+                <div class="ascii-frame">
+                    <img id="ascii-source-img" src="assets/images/proof-ascii.jpg" alt="" aria-hidden="true" hidden>
+                    <pre id="ascii-art" aria-hidden="true"></pre>
+                </div>
 
-        <!-- proof section: ONLY real messages from my community, with their permission-->
-        <!--
-        <section class="proof">
-        <h2>What the brothers say</h2>
-        <div class="proof-grid">
-            <blockquote class="proof-card">
-            <p>"#message"</p>
-            First name
-            </blockquote>
-            <blockquote class="proof-card">
-            <p>"message"</p>
-            First name
-            </blockquote>
-            <blockquote class="proof-card">
-            <p>"#message"</p>
-            First name
-            </blockquote>
-        </div>
-        </section>
-        -->
+          </section>
 
-    </main>
-    
-    <footer>
-     <p>&copy; 2026 Better Thyself. All rights reserved.</p>
-     <p><a href="privacy.html">Privacy Policy</a></p>
-     <p><a href="https://github.com/le-chefnoir/better-thyself-website">This Website's GitHub Repo</a></p>
-    </footer>
+            <!-- FAQ -->
+            <section id="faq" class="faq">
+                <h2>Frequently Asked Questions</h2>
 
-    <script>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do I get "Breaking the Chains" after I buy it?</summary>
+                    <div class="faq-content">
+                    <p>[FILL IN: is it emailed automatically by Stripe, or do you send it yourself?]</p>
+                    </div>
+                </details>
 
-        // loads each product's YT video. Boxes without a real ID keep the "coming soon" text
-        document.querySelectorAll(".video-frame[data-video-id]").forEach((box) => {
-        const id = box.dataset.videoId;
-        if (!id || id.startsWith("REPLACE")) return; // this line serves as fallback if there isn't a video ID for a video frame in "class-detail"
+                <details class="faq-item">
+                    <summary>How does the 1 on 1 coaching work?</summary>
+                    <div class="faq-content">
+                    <p>We'll contact you using the phone number you provided during checkout on Stripe. Please make sure the number is correct and that you’ll be available to receive messages in your WhatsApp/Telegram/SMS.</p>
+                    </div>
+                </details>
 
-        const frame = document.createElement("iframe");
-        frame.src = `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&vq=hd1080`;
-        frame.title = box.dataset.title || "Better Thyself video";
-        frame.loading = "lazy";
-        frame.allow = "encrypted-media; picture-in-picture; web-share";
-        frame.allowFullscreen = true;
-        box.replaceChildren(frame);
+                <details class="faq-item">
+                    <summary>What's your refund policy?</summary>
+                    <div class="faq-content">
+                    <p>We currently do not offer refunds or returns. We apologize for any inconvenience this may cause.
+                    If you have any questions about your order or purchase, feel free to email us at contactme.betterthyself.og@proton.me.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I have another question. Who do I contact?</summary>
+                    <div class="faq-content">
+                    <p>Reach out on <a href="https://discord.gg/x9ccMA7rgz" target="_blank" rel="noopener">Discord</a> or through the contact email: contactme.betterthyself.og@proton.me.</p>
+                    </div>
+                </details>
+                </div>
+
+            </section>
+
+        </main>
+        
+        <footer>
+        <p>&copy; 2026 Better Thyself. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+        <p><a href="https://github.com/le-chefnoir/better-thyself-website">This Website's GitHub Repo</a></p>
+        </footer>
+
+        <script>
+
+            // loads each product's YT video. Boxes without a real ID keep the "coming soon" text
+            document.querySelectorAll(".video-frame[data-video-id]").forEach((box) => {
+            const id = box.dataset.videoId;
+            if (!id || id.startsWith("REPLACE")) return; // this line serves as fallback if there isn't a video ID for a video frame in "class-detail"
+
+            const frame = document.createElement("iframe");
+            frame.src = `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&vq=hd1080`;
+            frame.title = box.dataset.title || "Better Thyself video";
+            frame.loading = "lazy";
+            frame.allow = "encrypted-media; picture-in-picture; web-share";
+            frame.allowFullscreen = true;
+            box.replaceChildren(frame);
+            });
+
+            // carousel. copies the slides so the loop never shows a gap
+                // ---------- Carousel: latest YouTube videos + manual slides ----------
+        const CAROUSEL_API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
+        const CAROUSEL_PLAYLIST = "PLOwrtJSlKmyY";   // same "videos" playlist ID used in index.html
+        const LATEST_COUNT = 1;                      // how many videos to show
+
+        const carousel = document.querySelector(".carousel");
+        const track = document.querySelector(".carousel-track");
+        const carouselHint = document.querySelector(".carousel-hint");
+        const reducedCarouselMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let carouselSlideCount = 0;
+
+        // Asks YouTube for the playlist and puts the newest videos at the start of the track
+        async function addLatestVideos() {
+        const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
+        url.searchParams.set("part", "snippet,status");
+        url.searchParams.set("maxResults", "10");   // asks for extra, in case some are private
+        url.searchParams.set("playlistId", CAROUSEL_PLAYLIST);
+        url.searchParams.set("key", CAROUSEL_API_KEY);
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`YouTube API request failed: ${response.status}`);
+        const data = await response.json();
+
+        const videos = (data.items || [])
+            .filter((item) => item.status?.privacyStatus === "public" && item.snippet?.resourceId?.videoId)
+            .slice(0, LATEST_COUNT);
+
+        const fragment = document.createDocumentFragment();
+
+        videos.forEach((item) => {
+            const { title, thumbnails, resourceId } = item.snippet;
+            const thumb = thumbnails.maxres || thumbnails.medium || thumbnails.default;
+
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `https://www.youtube.com/watch?v=${resourceId.videoId}`;
+            link.target = "_blank";
+            link.rel = "noopener";
+
+            const img = document.createElement("img");
+            img.src = thumb.url;
+            img.alt = title;
+
+            link.appendChild(img);
+            // caption below the thumbnail
+            const caption = document.createElement("p");
+            caption.textContent = title;   // automatic: the video's real title from YT
+            // caption.textContent = "Watch our latest episode";   // or use a fixed text instead
+            link.appendChild(caption);
+            li.appendChild(link);
+            fragment.appendChild(li);
         });
 
-        // carousel. copies the slides so the loop never shows a gap
-            // ---------- Carousel: latest YouTube videos + manual slides ----------
-    const CAROUSEL_API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
-    const CAROUSEL_PLAYLIST = "PLOwrtJSlKmyY";   // same "videos" playlist ID used in index.html
-    const LATEST_COUNT = 1;                      // how many videos to show
+        track.prepend(fragment);   // videos first, your manual slides after
+        }
 
-    const carousel = document.querySelector(".carousel");
-    const track = document.querySelector(".carousel-track");
+        // Copies the slides so the loop never shows a gap, then starts the animation
+        function startCarousel() {
+        if (!track.children.length) return;
 
-    // Asks YouTube for the playlist and puts the newest videos at the start of the track
-    async function addLatestVideos() {
-      const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
-      url.searchParams.set("part", "snippet,status");
-      url.searchParams.set("maxResults", "10");   // asks for extra, in case some are private
-      url.searchParams.set("playlistId", CAROUSEL_PLAYLIST);
-      url.searchParams.set("key", CAROUSEL_API_KEY);
+        const originals = [...track.children];
+        carouselSlideCount = originals.length;
+        const setWidth = track.offsetWidth;
+        const copies = Math.ceil(2000 / setWidth);
 
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`YouTube API request failed: ${response.status}`);
-      const data = await response.json();
+        for (let i = 0; i < copies; i++) {
+            originals.forEach((item) => {
+            const clone = item.cloneNode(true);
+            clone.classList.add("is-clone");
+            clone.setAttribute("aria-hidden", "true");
+            clone.querySelector("a").tabIndex = -1;
+            track.appendChild(clone);
+            });
+        }
 
-      const videos = (data.items || [])
-        .filter((item) => item.status?.privacyStatus === "public" && item.snippet?.resourceId?.videoId)
-        .slice(0, LATEST_COUNT);
+        track.style.setProperty("--count", originals.length);
+        track.style.setProperty("--duration", `${originals.length * 5}s`);
+        carousel.classList.add("is-ready");
+        }
 
-      const fragment = document.createDocumentFragment();
+        if (carousel && track) {
+        if (!reducedCarouselMotion) {
+            let dragState = null;
+            let suppressNextClick = false;
+            let carouselHintAnimation;
+            let swipeSettleAnimation;
+            let hintResetTimer;
 
-      videos.forEach((item) => {
-        const { title, thumbnails, resourceId } = item.snippet;
-        const thumb = thumbnails.maxres || thumbnails.medium || thumbnails.default;
+            function startCarouselHintAnimation() {
+            carouselHintAnimation = carouselHint?.animate(
+                [{ transform: "translateX(-6px)" }, { transform: "translateX(6px)" }],
+                { duration: 900, iterations: Infinity, direction: "alternate", easing: "ease-in-out" }
+            );
+            }
 
-        const li = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = `https://www.youtube.com/watch?v=${resourceId.videoId}`;
-        link.target = "_blank";
-        link.rel = "noopener";
+            function updateHintThumb(clientX) {
+            const hintTrack = carouselHint?.querySelector(".carousel-hint-track");
+            if (!hintTrack) return;
 
-        const img = document.createElement("img");
-        img.src = thumb.url;
-        img.alt = title;
+            const rect = hintTrack.getBoundingClientRect();
+            const thumbWidth = 32;
+            const thumbX = Math.max(0, Math.min(rect.width - thumbWidth, clientX - rect.left - thumbWidth / 2));
+            carouselHint.style.setProperty("--hint-thumb-x", `${thumbX}px`);
+            }
 
-        link.appendChild(img);
-        li.appendChild(link);
-        fragment.appendChild(li);
-      });
+            function finishHintSwipe() {
+            if (!carouselHint) return;
 
-      track.prepend(fragment);   // videos first, your manual slides after
-    }
+            const hintTrack = carouselHint.querySelector(".carousel-hint-track");
+            if (hintTrack) {
+                carouselHint.style.setProperty("--hint-thumb-x", `${(hintTrack.clientWidth - 32) / 2}px`);
+            }
+            carouselHint.classList.remove("is-dragging");
+            window.clearTimeout(hintResetTimer);
+            hintResetTimer = window.setTimeout(() => {
+                carouselHint.style.removeProperty("--hint-thumb-x");
+                startCarouselHintAnimation();
+            }, 350);
+            }
 
-    // Copies the slides so the loop never shows a gap, then starts the animation
-    function startCarousel() {
-      if (!track.children.length) return;
+            startCarouselHintAnimation();
 
-      const originals = [...track.children];
-      const setWidth = track.offsetWidth;
-      const copies = Math.ceil(2000 / setWidth);
+            function resumeCarousel(position) {
+            const styles = getComputedStyle(carousel);
+            const slideWidth = parseFloat(styles.getPropertyValue("--slide-w"));
+            const slideGap = parseFloat(styles.getPropertyValue("--slide-gap"));
+            const loopDistance = carouselSlideCount * (slideWidth + slideGap);
+            const duration = carouselSlideCount * 5;
+            let normalizedPosition = position % loopDistance;
 
-      for (let i = 0; i < copies; i++) {
-        originals.forEach((item) => {
-          const clone = item.cloneNode(true);
-          clone.classList.add("is-clone");
-          clone.setAttribute("aria-hidden", "true");
-          clone.querySelector("a").tabIndex = -1;
-          track.appendChild(clone);
+            if (normalizedPosition > 0) normalizedPosition -= loopDistance;
+            track.style.animation = "none";
+            track.style.transform = `translate3d(${normalizedPosition}px, 0, 0)`;
+            void track.offsetWidth;
+            track.style.transform = "";
+            track.style.animation = "";
+            track.style.animationDelay = `${(normalizedPosition / loopDistance) * duration}s`;
+            }
+
+            function beginCarouselDrag(event) {
+            if (!carousel.classList.contains("is-ready") || event.button > 0) return;
+
+            const transform = getComputedStyle(track).transform;
+            const position = transform === "none" ? 0 : new DOMMatrixReadOnly(transform).m41;
+            swipeSettleAnimation?.cancel();
+            swipeSettleAnimation = null;
+            dragState = {
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                lastX: event.clientX,
+                lastTime: event.timeStamp,
+                velocity: 0,
+                startPosition: position,
+                position,
+                dragging: false
+            };
+            track.style.animation = "none";
+            track.style.transform = `translate3d(${position}px, 0, 0)`;
+            carousel.setPointerCapture(event.pointerId);
+            }
+
+            carousel.addEventListener("pointerdown", beginCarouselDrag);
+            carouselHint?.addEventListener("pointerdown", beginCarouselDrag);
+
+            document.addEventListener("pointermove", (event) => {
+            if (!dragState || event.pointerId !== dragState.pointerId) return;
+
+            const deltaX = event.clientX - dragState.startX;
+            const deltaY = event.clientY - dragState.startY;
+            if (!dragState.dragging && (Math.abs(deltaY) > Math.abs(deltaX) || Math.abs(deltaX) < 6)) return;
+
+            if (!dragState.dragging) {
+                dragState.dragging = true;
+                window.clearTimeout(hintResetTimer);
+                carousel.classList.add("is-dragging");
+                carouselHintAnimation?.cancel();
+                carouselHint?.classList.add("is-dragging");
+            }
+
+            event.preventDefault();
+            const elapsed = Math.max(1, event.timeStamp - dragState.lastTime);
+            const instantVelocity = (event.clientX - dragState.lastX) / elapsed;
+            dragState.velocity = dragState.velocity * 0.65 + instantVelocity * 0.35;
+            dragState.lastX = event.clientX;
+            dragState.lastTime = event.timeStamp;
+
+            const styles = getComputedStyle(carousel);
+            const slideWidth = parseFloat(styles.getPropertyValue("--slide-w"));
+            const slideGap = parseFloat(styles.getPropertyValue("--slide-gap"));
+            const loopDistance = carouselSlideCount * (slideWidth + slideGap);
+            dragState.position = dragState.startPosition + deltaX;
+            while (dragState.position > 0) dragState.position -= loopDistance;
+            while (dragState.position <= -loopDistance) dragState.position += loopDistance;
+            track.style.transform = `translate3d(${dragState.position}px, 0, 0)`;
+            updateHintThumb(event.clientX);
+            });
+
+            function finishCarouselDrag(event) {
+            if (!dragState || event.pointerId !== dragState.pointerId) return;
+
+            const { position, velocity, dragging } = dragState;
+            dragState = null;
+            carousel.classList.remove("is-dragging");
+
+            if (dragging) {
+                const coast = Math.max(-180, Math.min(180, velocity * 180));
+                const targetPosition = position + coast;
+                swipeSettleAnimation?.cancel();
+                swipeSettleAnimation = track.animate(
+                [
+                    { transform: `translate3d(${position}px, 0, 0)` },
+                    { transform: `translate3d(${targetPosition}px, 0, 0)` }
+                ],
+                { duration: 380, easing: "cubic-bezier(0.22, 0.75, 0.25, 1)" }
+                );
+                swipeSettleAnimation.onfinish = () => {
+                swipeSettleAnimation.cancel();
+                swipeSettleAnimation = null;
+                resumeCarousel(targetPosition);
+                };
+                suppressNextClick = true;
+                window.setTimeout(() => { suppressNextClick = false; }, 400);
+                finishHintSwipe();
+            } else {
+                resumeCarousel(position);
+            }
+            }
+
+            document.addEventListener("pointerup", finishCarouselDrag);
+            document.addEventListener("pointercancel", finishCarouselDrag);
+            carousel.addEventListener("click", (event) => {
+            if (!suppressNextClick) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            suppressNextClick = false;
+            }, true);
+        }
+
+        addLatestVideos()
+            .catch((error) => console.error("Carousel: could not load YouTube videos", error))
+            .finally(startCarousel);   // runs even if YT fails, so your manual slides still show
+        }
+        </script>
+
+        <script>
+        // Animates each FAQ box open/closed instead of snapping instantly.
+        class Accordion {
+            constructor(el) {
+            this.el = el;
+            this.summary = el.querySelector("summary");
+            this.content = el.querySelector(".faq-content");
+            this.animation = null;
+            this.isClosing = false;
+            this.isExpanding = false;
+            this.summary.addEventListener("click", (e) => this.onClick(e));
+            }
+
+            onClick(e) {
+            e.preventDefault();
+            this.el.style.overflow = "hidden";
+            if (this.isClosing || !this.el.open) {
+                this.open();
+            } else {
+                this.shrink();
+            }
+            }
+
+            shrink() {
+            this.isClosing = true;
+            const startHeight = `${this.el.offsetHeight}px`;
+            const endHeight = `${this.summary.offsetHeight}px`;
+            if (this.animation) this.animation.cancel();
+            this.animation = this.el.animate({ height: [startHeight, endHeight] }, { duration: 250, easing: "ease-out" });
+            this.animation.onfinish = () => this.onFinish(false);
+            this.animation.oncancel = () => (this.isClosing = false);
+            }
+
+            open() {
+            this.el.style.height = `${this.el.offsetHeight}px`;
+            this.el.open = true;
+            requestAnimationFrame(() => this.expand());
+            }
+
+            expand() {
+            this.isExpanding = true;
+            const startHeight = `${this.el.offsetHeight}px`;
+            const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+            if (this.animation) this.animation.cancel();
+            this.animation = this.el.animate({ height: [startHeight, endHeight] }, { duration: 250, easing: "ease-out" });
+            this.animation.onfinish = () => this.onFinish(true);
+            this.animation.oncancel = () => (this.isExpanding = false);
+            }
+
+            onFinish(open) {
+            this.el.open = open;
+            this.animation = null;
+            this.isClosing = false;
+            this.isExpanding = false;
+            this.el.style.height = this.el.style.overflow = "";
+            }
+        }
+
+        document.querySelectorAll(".faq-item").forEach((el) => new Accordion(el));
+        </script>
+
+        <script>
+        // Renders the trust-message photo as animated ASCII art.
+        const asciiSourceImg = document.getElementById("ascii-source-img");
+        const asciiArt = document.getElementById("ascii-art");
+        const CHARS = " .:-=+*#%@"; // dark to light
+        const getColumnCount = () => window.matchMedia("(max-width: 700px)").matches ? 40 : 80;
+        const CHAR_ASPECT = 0.55;   // characters are taller than they are wide
+
+        let asciiRows = [];
+
+        function buildAscii() {
+            if (!asciiSourceImg.complete || !asciiSourceImg.naturalWidth) return;
+
+            const columns = getColumnCount();
+            const rows = Math.round((asciiSourceImg.naturalHeight / asciiSourceImg.naturalWidth) * columns * CHAR_ASPECT);
+            const canvas = document.createElement("canvas");
+            canvas.width = columns;
+            canvas.height = rows;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(asciiSourceImg, 0, 0, columns, rows);
+
+            const { data } = ctx.getImageData(0, 0, columns, rows);
+            asciiRows = [];
+
+            for (let y = 0; y < rows; y++) {
+            const cells = [];
+            for (let x = 0; x < columns; x++) {
+                const i = (y * columns + x) * 4;
+                const r = data[i], g = data[i + 1], b = data[i + 2];
+                const brightness = (r * 0.299 + g * 0.587 + b * 0.114) / 255;
+                const charIndex = Math.min(CHARS.length - 1, Math.floor(brightness * CHARS.length));
+                cells.push({ char: CHARS[charIndex], brightness });
+            }
+            asciiRows.push(cells);
+            }
+            render();
+        }
+
+        function render() {
+            let html = "";
+            asciiRows.forEach((row) => {
+            row.forEach((cell) => {
+                const b = cell.flicker ? Math.min(1, cell.brightness + 0.3) : cell.brightness;
+                const cls = b > 0.75 ? "bright" : b > 0.45 ? "mid" : "";
+                html += cls ? `<span class="${cls}">${cell.char}</span>` : cell.char;
+            });
+            html += "\n";
+            });
+            asciiArt.innerHTML = html;
+        }
+
+        if (asciiSourceImg.complete) {
+            buildAscii();
+        } else {
+            asciiSourceImg.addEventListener("load", buildAscii);
+        }
+
+        // Subtle shimmer: a few random characters brighten briefly, on repeat.
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!prefersReducedMotion) {
+            setInterval(() => {
+            if (!asciiRows.length) return;
+            asciiRows.forEach((row) => row.forEach((cell) => (cell.flicker = false)));
+            for (let n = 0; n < 12; n++) {
+                const row = asciiRows[Math.floor(Math.random() * asciiRows.length)];
+                row[Math.floor(Math.random() * row.length)].flicker = true;
+            }
+            render();
+            }, 180);
+        }
+
+        window.addEventListener("resize", () => {
+            clearTimeout(window._asciiResizeTimer);
+            window._asciiResizeTimer = setTimeout(buildAscii, 200);
         });
-      }
+        </script>
 
-      track.style.setProperty("--count", originals.length);
-      track.style.setProperty("--duration", `${originals.length * 5}s`);
-      carousel.classList.add("is-ready");
-    }
-
-    if (carousel && track) {
-      addLatestVideos()
-        .catch((error) => console.error("Carousel: could not load YouTube videos", error))
-        .finally(startCarousel);   // runs even if YouTube fails, so your manual slides still show
-    }
-
-    </script>
-
-</body>
+    </body>
 </html>

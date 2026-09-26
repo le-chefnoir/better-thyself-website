@@ -1,10 +1,5 @@
 /* Smokin' Sexy Style . ccs */
 
-@font-face {
-  font-family: 'Road Rage';
-  src: url('assets/fonts/Road_Rage.otf') format('opentype');
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 @keyframes fade-in {
@@ -26,9 +22,20 @@ html {
   }
 }
 
-body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+@keyframes portrait-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, label),
 body > :not(nav):not(main) > *,
-body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, label),
 body > main > :not(#products):not(#about) > * {
   animation: fade-in 0.8s ease both;
 }
@@ -44,9 +51,9 @@ body > main > :not(#products):not(#about) > * {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+  body > :not(nav):not(main) :is(h1, h2, h3, h4, p, li, a, img, button, label),
   body > :not(nav):not(main) > *,
-  body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, input, label),
+  body > main > :not(#products):not(#about) :is(h1, h2, h3, h4, p, li, a, img, button, label),
   body > main > :not(#products):not(#about) > *,
   #products {
     animation: none;
@@ -57,11 +64,11 @@ body > main > :not(#products):not(#about) > * {
 
 #about .johnwickpfp {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(12px) scale(0.96);
 }
 
 #about.about-photo-visible .johnwickpfp {
-  animation: fade-in 0.8s ease both;
+  animation: portrait-reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -74,7 +81,7 @@ body > main > :not(#products):not(#about) > * {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;   
+  font-family: "PT Serif", serif;   
   color: #ffffff;
   background-color: #09090b;
   line-height: 1.6;
@@ -101,21 +108,12 @@ header {
   min-width: 0;
 }
 
-.btpfp {
-  flex: 0 1 50%;
-  width: 50%;
-  height: auto;
-  max-width: 500px;
-  border-radius: 12px;
-  margin-left: 0px;
-}
-
 .bt-logo {
   display: block;
   width: 500px;
   height: auto;
   max-width: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 0 0 0;
   border-radius: 0;
 }
 
@@ -134,7 +132,7 @@ header p {
   margin-bottom: 0;
 }
 
-nav {
+.nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -150,7 +148,10 @@ nav {
   border-bottom: 1px solid #333;
 }
 
-nav a {
+.nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #09090b;
   color: #ffffff;
   padding: 4px 13px;
@@ -158,38 +159,17 @@ nav a {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   border-radius: 10px;
+  line-height: 1;
   transition: background-color 0.2s ease;
 }
-
 .nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0;
+  height: 100%;
 }
-
-.bt-logo-nav {
-  display: block;
-  width: 150px;
-  height: 40px;
-}
-
-.bt-logo-link {
-  position: absolute;
-  top: 5px;
-  left: 6px;
-  display: block;
-  padding: 0;
-  background-color: transparent;
-  line-height: 0;
-  transition: none;
-}
-
-.bt-logo-link:hover {
-  background-color: transparent;
-}
-
-nav a:hover {
+.nav a:hover {
   background-color: #18181a;
 }
 
@@ -206,7 +186,7 @@ nav a:hover {
 }
 
 .hero-highlight {
-  color: #cb0008;
+  color: #eba800;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
@@ -214,7 +194,7 @@ nav a:hover {
 
 .gotoproducts-button {
   display: inline-block;
-  background-color: #cb0008;
+  background-color: #eba800;
   color: #000000;
   padding: 14px 28px;
   text-decoration: none;
@@ -407,7 +387,7 @@ nav a:hover {
 }
 
 .youtube-empty {
-  width: min(100%, 720px);
+  width: min(100%, 900px);
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #333;
@@ -486,6 +466,7 @@ nav a:hover {
   gap: 70px;
   max-width: 950px;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .product-card {
@@ -533,8 +514,10 @@ nav a:hover {
   height: 472px;
   object-fit: fill;
   border-radius: 6px;
+  
   margin-bottom: 30px;
 }
+
 
 .product-wrapper {
   display: flex;
@@ -565,27 +548,13 @@ nav a:hover {
 }
 
 #newsletter {
-  background-color: #18181a;
-  padding: 50px 20px 30px;
-  text-align: center;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
   scroll-margin-top: 100px;
-}
-
-#newsletter h2 {
-  font-size: 2rem;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #newsletter p {
   font-size: 1.1rem;
   max-width: 630px;
-  margin: 0 auto 30px auto;
+  margin: 0 0 30px;
   color: #d3d3d3;
 }
 
@@ -594,12 +563,7 @@ nav a:hover {
 }
 
 #newsletter form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  width: min(100%, 760px);
-  margin: 0 auto;
+  align-items: stretch;
 }
 
 #newsletter input[type="email"] {
@@ -609,33 +573,23 @@ nav a:hover {
   background-color: #09090b;
   color: #ffffff;
   font-size: 1rem;
-  width: min(100%, 360px);
+  width: 100%;
 }
 
 
 #newsletter button {
   padding: 14px 28px;
-  border: none;
-  border-radius: 4px;
-  background-color: #cb0008;
-  color: #000000;
   font-size: 1rem;
-  letter-spacing: 1px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-#newsletter button:hover {
-  background-color: #cb0007de;
 }
 
 .newsletter-consent {
-  width: min(100%, 600px);
-  flex-basis: center;
-  max-width: auto;
+  width: 100%;
+  flex-basis: auto;
+  max-width: none;
   font-size: 1rem;
   color: #d3d3d3;
-  text-align: center;
+  text-align: left;
 }
 
 .newsletter-consent input {
@@ -659,32 +613,29 @@ nav a:hover {
   margin-left: 400px;
   margin-right: 400px;
   margin-bottom: 100px;
-  scroll-margin-top: 20px;
+  scroll-margin-top: 90px;
   border-radius: 12px;
   background-color: #18181a;
   border: 1px solid #333;
 }
-
 #about h2 {
-  font-size: 2rem;
+  font-size: 7rem;
   letter-spacing: 1px;
-  margin-bottom: 40px;
-  text-align: center;
+  margin-top: 20px;
+  text-align: left;
 }
-
 .about-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: clamp(32px, 6vw, 80px);
   width: min(100%, 1050px);
   margin: 0 auto;
 }
-
 .about-copy {
   flex: 1 1 0;
   min-width: 0;
 }
-
 .about-copy p {
   text-align: left;
   font-size: 1rem;
@@ -692,7 +643,6 @@ nav a:hover {
   margin: 0 0 22px;
   color: #d3d3d3;
 }
-
 .about-copy p:last-child {
   margin-bottom: 0;
 }
@@ -700,8 +650,8 @@ nav a:hover {
 .johnwickpfp {
   display: block;
   flex: 0 1 450px;
-  width: min(100%, 400px);
-  height: 500px;
+  width: min(100%, 500px);
+  height: 600px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   margin: 0;
@@ -794,51 +744,6 @@ footer a {
   width: 20px;
   height: 20px;
   fill: #ffffff;
-}
-
-@media (max-width: 700px) {
-  header {
-    flex-direction: column;
-    gap: 25px;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding: 25px 20px;
-  }
-
-  .header-text,
-  .btpfp {
-    width: 100%;
-  }
-
-  .header-text {
-    flex-basis: auto;
-    max-width: none;
-  }
-
-  header h1 {
-    font-size: clamp(1.75rem, 10vw, 2.5rem);
-  }
-
-  #about {
-    margin-left: 15px;
-    margin-right: 15px;
-    padding: 50px 20px 65px;
-  }
-
-  #about h2 {
-    margin-bottom: 30px;
-  }
-
-  .about-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 28px;
-  }
-
-  .johnwickpfp {
-    width: min(100%, 360px);
-    margin: 0 auto;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

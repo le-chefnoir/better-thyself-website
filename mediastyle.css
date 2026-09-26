@@ -1,0 +1,489 @@
+/* Responsive layouts and viewport-specific adjustments */
+
+/* style.css: base mobile layout */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 25px 20px;
+  }
+
+  .header-text,
+  .btpfp {
+    width: 100%;
+  }
+
+  .header-text {
+    flex-basis: auto;
+    max-width: none;
+  }
+
+  header h1 {
+    font-size: clamp(1.75rem, 10vw, 2.5rem);
+  }
+
+  #about {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 50px 20px 65px;
+  }
+
+  #about h2 {
+    margin-bottom: 30px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .johnwickpfp {
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+}
+
+/* shop.css: mobile carousel and product details */
+@media (max-width: 700px) {
+  .carousel {
+    --slide-w: 220px;
+    --slide-gap: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .detail {
+    padding: 28px 18px;
+  }
+
+  .detail-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .buy-bar {
+    flex-direction: column;
+  }
+
+  .buy-bar .buy-button {
+    width: 100%;
+  }
+}
+
+/* theme.css: tablet newsletter layout */
+@media (max-width: 900px) {
+  .newsletter-grid { grid-template-columns: 1fr; }
+}
+
+/* theme.css: compact background texture */
+@media (max-width: 1180px) {
+  body::after {
+    background: repeating-linear-gradient(135deg, rgba(201, 162, 74, 0.045) 0 1px, transparent 1px 8px);
+  }
+}
+
+/* theme.css: shared phone layout */
+@media (max-width: 700px) {
+  .policy {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .policy p,
+  .policy li {
+    overflow-wrap: anywhere;
+  }
+
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  .nav {
+    min-height: 54px;
+    padding: 5px 3px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .nav a {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  header {
+    width: calc(100% - 28px);
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    margin-top: 24px;
+    margin-bottom: 56px;
+    padding: 28px 18px;
+    text-align: center;
+  }
+
+  .header-text {
+    flex: none;
+    width: 100%;
+    align-items: center;
+  }
+
+  .bt-logo {
+    width: min(100%, 420px);
+  }
+
+  header p {
+    font-size: 1rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .btpfp {
+    order: -1;
+    flex: none;
+    width: min(220px, 75%);
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero.shop-hero {
+    width: calc(100% - 28px);
+    margin: 24px auto 56px;
+    padding: 36px 18px;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .recent-uploads {
+    padding: 34px 14px 56px;
+  }
+
+  .youtube-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .youtube-card-content {
+    padding: 8px;
+    font-size: 0.72rem;
+  }
+
+  .youtube-empty {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: fit-content;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #products {
+    padding: 52px 14px 64px;
+  }
+
+  #products h2 {
+    margin-bottom: 24px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 56px;
+  }
+
+  .product-wrapper {
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .product1-image,
+  .product2-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 378 / 472;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+
+  .product-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .product-card h4 {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .product-wrapper .buy-button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 6px;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  #newsletter {
+    margin: 48px 14px 0;
+    padding: 48px 18px 0px;
+  }
+
+  .newsletter-grid {
+    gap: 34px;
+  }
+
+  .newsletter-intro h2 {
+    font-size: clamp(4.5rem, 22vw, 8rem);
+    line-height: 0.82;
+    text-align: left;
+  }
+
+  .newsletter-verse {
+    margin-top: 18px;
+  }
+
+  .newsletter-box {
+    padding: 20px 16px 28px;
+  }
+
+  #newsletter form {
+    width: 100%;
+  }
+
+  #newsletter form h3 {
+    font-size: 2.2rem;
+  }
+
+  #about {
+    width: calc(100% - 28px);
+    margin: 80px auto;
+    padding: 0;
+  }
+
+  #about h2 {
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  #about {
+    display: block;
+    padding: 0;
+  }
+
+  #about h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .about-copy {
+    order: 1;
+    padding: 28px 20px 32px;
+    border-right: 0;
+    border-top: 1px solid var(--box-line);
+  }
+
+  .johnwickpfp {
+    flex: none;
+    order: -1;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-width: none;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .trust-strip,
+  .proof,
+  .faq {
+    padding: 42px 16px;
+  }
+
+  .trust-links {
+    width: min(100%, 420px);
+    margin: 0 auto;
+  }
+
+  .trust-links a {
+    flex: 1 1 100%;
+  }
+
+  .carousel {
+    margin: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .shelf {
+    padding: 44px 14px 56px;
+  }
+
+  .shelf h2 {
+    margin-bottom: 26px;
+  }
+
+  .shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .shelf-card {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .shelf-card img {
+    margin-bottom: 12px;
+  }
+
+  .shelf-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.05;
+  }
+
+  .shelf-tagline {
+    padding-bottom: 8px;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .shelf-price {
+    font-size: 1.3rem;
+    line-height: 1.1;
+  }
+
+  .shelf-card .buy-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 6px;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .shelf-more {
+    margin-top: 10px;
+    font-size: 0.76rem;
+  }
+
+  .detail {
+    width: calc(100% - 28px);
+    margin-bottom: 28px;
+    padding: 26px 18px;
+  }
+
+  .faq-list {
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .faq-item {
+    padding: 18px;
+  }
+
+  .recent-uploads h2,
+  #products h2,
+  .shelf h2,
+  .detail h2,
+  .trust-strip h2,
+  .faq h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .carousel-title {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+  }
+
+  .proof {
+    width: calc(100% - 28px);
+    margin: 64px auto 40px;
+  }
+
+  .proof h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .proof p {
+    font-size: 1rem;
+  }
+
+  .ascii-frame {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  #ascii-art {
+    font-size: clamp(7px, 2.6vw, 11px);
+    line-height: 1;
+  }
+
+  .faq-item summary {
+    gap: 10px;
+    padding: 16px;
+    font-size: 1.35rem;
+  }
+
+  .faq-item summary::after {
+    font-size: 1.5rem;
+  }
+
+  .faq-content {
+    padding: 0 16px 18px;
+  }
+
+  .faq-content p {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav a {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 0.82rem;
+  }
+
+  .youtube-grid {
+    grid-template-columns: 1fr;
+    width: min(100%, 360px);
+  }
+
+  .newsletter-intro h2 {
+    font-size: 4.5rem;
+  }
+}
