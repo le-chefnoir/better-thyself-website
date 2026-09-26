@@ -76,7 +76,7 @@
                     </li>
 
                     <li>
-                         
+                        <a href="#coaching">
                         <img src="assets/images/carousel/product_card2.jpg" alt="1 on 1 coach">
                         <p>Get a session to quit porn for good</p>
                         </a>
@@ -325,7 +325,8 @@
             const clone = item.cloneNode(true);
             clone.classList.add("is-clone");
             clone.setAttribute("aria-hidden", "true");
-            clone.querySelector("a").tabIndex = -1;
+            const link = clone.querySelector("a");
+            if (link) link.tabIndex = -1;
             track.appendChild(clone);
             });
         }
