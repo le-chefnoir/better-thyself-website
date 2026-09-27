@@ -205,7 +205,7 @@
 
 .trust-links a {
   padding: 10px 22px;
-  border: 1px solid #cb0008;
+  border: 1px solid var(--accent);
   border-radius: 999px;
   color: #ffffff;
   text-decoration: none;
@@ -213,7 +213,7 @@
 }
 
 .trust-links a:hover {
-  background-color: rgba(203, 0, 8, 0.15);
+  background-color: rgba(128, 104, 48, 0.15);
 }
 
 /* ---------- Keyboard focus + mobile ---------- */
@@ -279,7 +279,7 @@ button:focus-visible {
 }
 
 .carousel-track a:hover img {
-  border-color: #cb0008;
+  border-color: var(--accent);
 }
 
 /* Starts moving only after the JavaScript has prepared the slides */

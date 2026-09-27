@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <head>
 
         <meta charset="UTF-8">
@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="shop.css">
         <link rel="stylesheet" href="theme.css">
             <link rel="stylesheet" href="mediastyle.css">
+        <script src="theme-toggle.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
         <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
@@ -17,7 +18,7 @@
 
     </head>
 
-    <body>
+    <body class="shop-page">
 
         <!-- navigation section -->
         <nav class="nav">
@@ -26,6 +27,17 @@
         <a href="#"><b>Store</b></a>
         <a href="index.html#newsletter"><b>Newsletter</b></a>
         <a href="index.html#about"><b>About</b></a>
+        <button class="theme-toggle" type="button" aria-label="Toggle day and night theme" title="Switch to day mode" aria-pressed="true">
+            <span class="theme-toggle-icons" aria-hidden="true">
+                <svg class="theme-toggle-icon theme-toggle-icon-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                </svg>
+                <svg class="theme-toggle-icon theme-toggle-icon-night" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path>
+                </svg>
+            </span>
+        </button>
         </div>
         </nav>
 
@@ -102,7 +114,7 @@
                 <h3>Breaking the Chains</h3>
                 <p class="shelf-tagline">a no bullshit short guide for lazy people to leave pornography in the past</p>
                 <p class="shelf-price">$9.99</p> 
-                <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">PURCHASE ON OUR STORE</a>
+                <a href="https://buy.stripe.com/dRm5kD4vm7nO2LH0LR9sk07" class="buy-button">PURCHASE NOW</a>
                 <a href="#guide" class="shelf-more">Watch the video first</a>
                 </article>
 
@@ -111,7 +123,7 @@
                 <h3>1 on 1 No Goon Coaching</h3>
                 <p class="shelf-tagline">coaching sessions to help you rewire your brain and restore your life</p>
                 <p class="shelf-price">$39.99 <span class="hour_higlight"> /h</span></p>
-                <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">PURCHASE ON OUR STORE</a>
+                <a href="https://buy.stripe.com/9B67sL4vmeQg0Dz1PV9sk06" class="buy-button">PURCHASE NOW</a>
                 <a href="#coaching" class="shelf-more">Watch the video first</a>
                 </article>
             </div>
@@ -186,12 +198,8 @@
             <section id="trust-message" class="proof">
                 <h2>We're Just Getting Started</h2>
                 <p>We don't have testimonials to show off and brag about yet... Better Thyself is a new brotherhood. If our books or coaching sessions help you, we'd love to hear about it, and we'll be proud to share your story here (with your permission obviously).</p>
-                <div class="ascii-frame">
-                    <img id="ascii-source-img" src="assets/images/proof-ascii.jpg" alt="" aria-hidden="true" hidden>
-                    <pre id="ascii-art" aria-hidden="true"></pre>
-                </div>
-
-          </section>
+                <img class="proof-animation" src="assets/images/ascii-animation.gif" alt="Animated illustration for the Better Thyself trust section">
+            </section>
 
             <!-- FAQ -->
             <section id="faq" class="faq">
@@ -199,16 +207,17 @@
 
                 <div class="faq-list">
                 <details class="faq-item">
-                    <summary>How do I get "Breaking the Chains" after I buy it?</summary>
+                    <summary>How do I get the ebook after I buy it?</summary>
                     <div class="faq-content">
-                    <p>[FILL IN: is it emailed automatically by Stripe, or do you send it yourself?]</p>
+                    <p>After your purchase, you will automatically receive an email containing a copy of your ebook. If you don’t receive it, please contact us, and we’ll send it to you immediately.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>How does the 1 on 1 coaching work?</summary>
                     <div class="faq-content">
-                    <p>We'll contact you using the phone number you provided during checkout on Stripe. Please make sure the number is correct and that you’ll be available to receive messages in your WhatsApp/Telegram/SMS.</p>
+                    <p>After purchasing your 1 on 1 coaching session, open a ticket through our <a href="https://discord.gg/x9ccMA7rgz" target="_blank" rel="noopener">Discord</a> and send your purchase receipt in the private chat that is created for you.
+                    Once we verify your purchase, I’ll reply to you directly in the ticket to arrange a call and find a time that works best for you.</p>
                     </div>
                 </details>
 
@@ -235,7 +244,7 @@
         <footer>
         <p>&copy; 2026 Better Thyself. All rights reserved.</p>
         <p><a href="privacy.html">Privacy Policy</a></p>
-        <p><a href="https://github.com/le-chefnoir/better-thyself-website">This Website's GitHub Repo</a></p>
+        <p><a href="https://github.com/le-chefnoir/better-thyself-website">Website's GitHub Repo</a></p>
         </footer>
 
         <script>
@@ -559,84 +568,6 @@
         }
 
         document.querySelectorAll(".faq-item").forEach((el) => new Accordion(el));
-        </script>
-
-        <script>
-        // Renders the trust-message photo as animated ASCII art.
-        const asciiSourceImg = document.getElementById("ascii-source-img");
-        const asciiArt = document.getElementById("ascii-art");
-        const CHARS = " .:-=+*#%@"; // dark to light
-        const getColumnCount = () => window.matchMedia("(max-width: 700px)").matches ? 40 : 80;
-        const CHAR_ASPECT = 0.55;   // characters are taller than they are wide
-
-        let asciiRows = [];
-
-        function buildAscii() {
-            if (!asciiSourceImg.complete || !asciiSourceImg.naturalWidth) return;
-
-            const columns = getColumnCount();
-            const rows = Math.round((asciiSourceImg.naturalHeight / asciiSourceImg.naturalWidth) * columns * CHAR_ASPECT);
-            const canvas = document.createElement("canvas");
-            canvas.width = columns;
-            canvas.height = rows;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(asciiSourceImg, 0, 0, columns, rows);
-
-            const { data } = ctx.getImageData(0, 0, columns, rows);
-            asciiRows = [];
-
-            for (let y = 0; y < rows; y++) {
-            const cells = [];
-            for (let x = 0; x < columns; x++) {
-                const i = (y * columns + x) * 4;
-                const r = data[i], g = data[i + 1], b = data[i + 2];
-                const brightness = (r * 0.299 + g * 0.587 + b * 0.114) / 255;
-                const charIndex = Math.min(CHARS.length - 1, Math.floor(brightness * CHARS.length));
-                cells.push({ char: CHARS[charIndex], brightness });
-            }
-            asciiRows.push(cells);
-            }
-            render();
-        }
-
-        function render() {
-            let html = "";
-            asciiRows.forEach((row) => {
-            row.forEach((cell) => {
-                const b = cell.flicker ? Math.min(1, cell.brightness + 0.3) : cell.brightness;
-                const cls = b > 0.75 ? "bright" : b > 0.45 ? "mid" : "";
-                html += cls ? `<span class="${cls}">${cell.char}</span>` : cell.char;
-            });
-            html += "\n";
-            });
-            asciiArt.innerHTML = html;
-        }
-
-        if (asciiSourceImg.complete) {
-            buildAscii();
-        } else {
-            asciiSourceImg.addEventListener("load", buildAscii);
-        }
-
-        // Subtle shimmer: a few random characters brighten briefly, on repeat.
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if (!prefersReducedMotion) {
-            setInterval(() => {
-            if (!asciiRows.length) return;
-            asciiRows.forEach((row) => row.forEach((cell) => (cell.flicker = false)));
-            for (let n = 0; n < 12; n++) {
-                const row = asciiRows[Math.floor(Math.random() * asciiRows.length)];
-                row[Math.floor(Math.random() * row.length)].flicker = true;
-            }
-            render();
-            }, 180);
-        }
-
-        window.addEventListener("resize", () => {
-            clearTimeout(window._asciiResizeTimer);
-            window._asciiResizeTimer = setTimeout(buildAscii, 200);
-        });
         </script>
 
     </body>

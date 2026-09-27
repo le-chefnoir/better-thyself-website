@@ -2,7 +2,7 @@
 <!-- I've build this website by myself, with only a strong belief inside my heart: If I have the power to change lives, I will use it for God. -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 
   <meta charset="UTF-8">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="shop.css">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="mediastyle.css">
+  <script src="theme-toggle.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" type=  "image/png" href="assets/images/bt favicon.png">
   <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
@@ -29,6 +30,17 @@
       <a href="shop.html"><b>Store</b></a>
       <a href="#newsletter"><b>Newsletter</b></a>
       <a href="#about"><b>About</b></a>
+      <button class="theme-toggle" type="button" aria-label="Toggle day and night theme" title="Switch to night mode" aria-pressed="false">
+        <span class="theme-toggle-icons" aria-hidden="true">
+          <svg class="theme-toggle-icon theme-toggle-icon-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-night" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path>
+          </svg>
+        </span>
+      </button>
     </div>
   </nav>
 
@@ -486,7 +498,7 @@
   <footer>
     <p>&copy; 2026 Better Thyself. All rights reserved.</p>
     <p><a href="privacy.html">Privacy Policy</a></p>
-    <p><a href="https://github.com/le-chefnoir/better-thyself-website">This Website's GitHub Repo</a></p>
+    <p><a href="https://github.com/le-chefnoir/better-thyself-website">Website's GitHub Repo</a></p>
   </footer>
 
 </body>

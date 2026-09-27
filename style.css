@@ -233,7 +233,7 @@ header p {
   left: 0;
   width: 50%;
   height: 2px;
-  background-color: #cb0008;
+  background-color: var(--accent);
   content: "";
   transition: transform 0.3s ease;
 }
@@ -351,7 +351,7 @@ header p {
 
 .youtube-card:hover,
 .youtube-card.is-active {
-  border-color: #cb0008;
+  border-color: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
@@ -403,7 +403,7 @@ header p {
   gap: 8px;
   margin-top: 18px;
   padding: 10px 18px;
-  border: 1px solid #cb0008;
+  border: 1px solid var(--accent);
   border-radius: 999px;
   background: transparent;
   color: #ffffff;
@@ -414,7 +414,7 @@ header p {
 }
 
 .load-more-button:hover:not(:disabled) {
-  background-color: rgba(203, 0, 8, 0.1);
+  background-color: rgba(128, 104, 48, 0.1);
 }
 
 .load-more-button:disabled {
@@ -538,13 +538,13 @@ header p {
   font-weight: bold;
   letter-spacing: 0px;
   border-radius: 40px;
-  border: 2px solid #cb0008;
+  border: 2px solid var(--accent);
   transition: color 0.3s ease;
   width: 70%;
 }
 
 .buy-button:hover {
-  color: #cb0008;
+  color: var(--accent);
 }
 
 #newsletter {
@@ -737,7 +737,7 @@ footer a {
 }
 
 .social-icon:hover {
-  background-color: #cb0008;
+  background-color: var(--accent);
 }
 
 .social-icon svg {

@@ -78,13 +78,6 @@
   .newsletter-grid { grid-template-columns: 1fr; }
 }
 
-/* theme.css: compact background texture */
-@media (max-width: 1180px) {
-  body::after {
-    background: repeating-linear-gradient(135deg, rgba(201, 162, 74, 0.045) 0 1px, transparent 1px 8px);
-  }
-}
-
 /* theme.css: shared phone layout */
 @media (max-width: 700px) {
   .policy {
@@ -104,10 +97,11 @@
   .nav {
     min-height: 54px;
     padding: 5px 3px;
+    justify-content: flex-start;
   }
 
   .nav-links {
-    width: 100%;
+    width: calc(100% - 58px);
     justify-content: space-around;
   }
 
@@ -439,16 +433,6 @@
 
   .proof p {
     font-size: 1rem;
-  }
-
-  .ascii-frame {
-    width: 100%;
-    margin-top: 24px;
-  }
-
-  #ascii-art {
-    font-size: clamp(7px, 2.6vw, 11px);
-    line-height: 1;
   }
 
   .faq-item summary {
