@@ -1,2 +1,4 @@
 .git/**
 .wrangler/**
+.github/**
+.github/agents/**
