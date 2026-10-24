@@ -9,10 +9,16 @@
         <link rel="stylesheet" href="shop.css">
         <link rel="stylesheet" href="theme.css">
             <link rel="stylesheet" href="mediastyle.css">
+  <link rel="stylesheet" href="enhancements.css">
         <script src="theme-toggle.js"></script>
+  <script src="youtube-config.js" defer></script>
+  <script src="youtube-feed.js" defer></script>
+  <script src="video-player.js" defer></script>
+  <script src="shop-interactions.js" defer></script>
+  <script src="site-motion.js" defer></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="icon" type="image/png" href="assets/images/bt favicon.png">
-        <link rel="apple-touch-icon" href="assets/images/bt favicon.png">
+        <link rel="icon" type="image/png" href="assets/images/favicon-64.png">
+        <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -60,7 +66,7 @@
                 <p class="carousel-hint">
                     <span class="carousel-hint-label">← Drag to browse →</span>
                     <span class="carousel-hint-track" aria-hidden="true">
-                        <span><img src="assets/images/bt favicon.png" alt=""></span>
+                        <span><img src="assets/images/favicon-64.png" alt="" loading="lazy" decoding="async"></span>
                     </span>
                 </p>
                 <div class="carousel" aria-label="Latest news, products and episodes">
@@ -68,41 +74,42 @@
                     <!-- NEWEST FIRST! To add a slide, copy one <li>...</li> block -->
                     <li>
                         <a>
-                        <img src="assets/images/carousel/news_card1.jpg" alt="my setup"> <!-- change inside "alt=" the description of what's showing-->
+                        <img src="assets/images/carousel/news_card1.jpg" alt="my setup" loading="lazy" decoding="async"> <!-- change inside "alt=" the description of what's showing-->
                         <p>This brand was built here... what's your excuse, mf?</p>
                         </a>
                     </li>
 
                     <li>
                         <a>
-                        <img src="assets/images/carousel/news_card2.jpg" alt="website launch">
+                        <img src="assets/images/carousel/news_card2.jpg" alt="website launch" loading="lazy" decoding="async">
                         <p>OUR WEBSITE IS OFFICIALLY LIVE!!!</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="#guide">
-                        <img src="assets/images/carousel/product_card1.jpg" alt="breaking the chains">
+                        <img src="assets/images/carousel/product_card1.jpg" alt="breaking the chains" loading="lazy" decoding="async">
                         <p>If you're too lazy to quit porn, this book is for you</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="#coaching">
-                        <img src="assets/images/carousel/product_card2.jpg" alt="1 on 1 coach">
+                        <img src="assets/images/carousel/product_card2.jpg" alt="1 on 1 coach" loading="lazy" decoding="async">
                         <p>Get a session to quit porn for good</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="free-resources.html" aria-label="YouTube" target="_blank" rel="noopener">
-                        <img src="assets/images/carousel/product_card3.jpg" alt="freeversion btc">
+                        <img src="assets/images/carousel/product_card3.jpg" alt="freeversion btc" loading="lazy" decoding="async">
                         <p>Try out the free version of Breaking the Chains!</p>
                         </a>
                     </li>
 
                     </ul>
                 </div>
+                <button class="carousel-motion-toggle" type="button" aria-pressed="false">Pause carousel</button>
             </section>
 
             <!-- shelf section: both products at a glance -->
@@ -110,7 +117,7 @@
             <h2>Products and Services</h2>  
             <div class="shelf-grid">
                 <article class="shelf-card">
-                <img src="assets/images/1.png" alt="Breaking the Chains cover">
+                <img src="assets/images/1.png" alt="Breaking the Chains cover" loading="lazy" decoding="async">
                 <h3>Breaking the Chains</h3>
                 <p class="shelf-tagline">a no bullshit short guide for lazy people to leave pornography in the past</p>
                 <p class="shelf-price">$9.99</p> 
@@ -119,7 +126,7 @@
                 </article>
 
                 <article class="shelf-card">
-                <img src="assets/images/1 on 1 Call.png" alt="1 on 1 No Goon Coaching cover">
+                <img src="assets/images/1 on 1 Call.png" alt="1 on 1 No Goon Coaching cover" loading="lazy" decoding="async">
                 <h3>1 on 1 No Goon Coaching</h3>
                 <p class="shelf-tagline">coaching sessions to help you rewire your brain and restore your life</p>
                 <p class="shelf-price">$39.99 <span class="hour_higlight"> /h</span></p>
@@ -198,7 +205,7 @@
             <section id="trust-message" class="proof">
                 <h2>We're Just Getting Started</h2>
                 <p>We don't have testimonials to show off and brag about yet... Better Thyself is a new brotherhood. If our books or coaching sessions help you, we'd love to hear about it, and we'll be proud to share your story here (with your permission obviously).</p>
-                <img class="proof-animation" src="assets/images/ascii-animation.gif" alt="Animated illustration for the Better Thyself trust section">
+                <img class="proof-animation" src="assets/images/ascii-animation.gif" alt="Animated illustration for the Better Thyself trust section" loading="lazy" decoding="async">
             </section>
 
             <!-- FAQ -->
@@ -247,267 +254,7 @@
         <p><a href="https://github.com/le-chefnoir/better-thyself-website">Website's GitHub Repo</a></p>
         </footer>
 
-        <script>
 
-            // loads each product's YT video. Boxes without a real ID keep the "coming soon" text
-            document.querySelectorAll(".video-frame[data-video-id]").forEach((box) => {
-            const id = box.dataset.videoId;
-            if (!id || id.startsWith("REPLACE")) return; // this line serves as fallback if there isn't a video ID for a video frame in "class-detail"
-
-            const frame = document.createElement("iframe");
-            frame.src = `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&vq=hd1080`;
-            frame.title = box.dataset.title || "Better Thyself video";
-            frame.loading = "lazy";
-            frame.allow = "encrypted-media; picture-in-picture; web-share";
-            frame.allowFullscreen = true;
-            box.replaceChildren(frame);
-            });
-
-            // carousel. copies the slides so the loop never shows a gap
-                // ---------- Carousel: latest YouTube videos + manual slides ----------
-        const CAROUSEL_API_KEY = "AIzaSyASowUpGRB-TrqIpJllGWWnYLX2ZvcxC1Q";
-        const CAROUSEL_PLAYLIST = "PLOwrtJSlKmyY";   // same "videos" playlist ID used in index.html
-        const LATEST_COUNT = 1;                      // how many videos to show
-
-        const carousel = document.querySelector(".carousel");
-        const track = document.querySelector(".carousel-track");
-        const carouselHint = document.querySelector(".carousel-hint");
-        const reducedCarouselMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        let carouselSlideCount = 0;
-
-        // Asks YouTube for the playlist and puts the newest videos at the start of the track
-        async function addLatestVideos() {
-        const url = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
-        url.searchParams.set("part", "snippet,status");
-        url.searchParams.set("maxResults", "10");   // asks for extra, in case some are private
-        url.searchParams.set("playlistId", CAROUSEL_PLAYLIST);
-        url.searchParams.set("key", CAROUSEL_API_KEY);
-
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`YouTube API request failed: ${response.status}`);
-        const data = await response.json();
-
-        const videos = (data.items || [])
-            .filter((item) => item.status?.privacyStatus === "public" && item.snippet?.resourceId?.videoId)
-            .slice(0, LATEST_COUNT);
-
-        const fragment = document.createDocumentFragment();
-
-        videos.forEach((item) => {
-            const { title, thumbnails, resourceId } = item.snippet;
-            const thumb = thumbnails.maxres || thumbnails.medium || thumbnails.default;
-
-            const li = document.createElement("li");
-            const link = document.createElement("a");
-            link.href = `https://www.youtube.com/watch?v=${resourceId.videoId}`;
-            link.target = "_blank";
-            link.rel = "noopener";
-
-            const img = document.createElement("img");
-            img.src = thumb.url;
-            img.alt = title;
-
-            link.appendChild(img);
-            // caption below the thumbnail
-            const caption = document.createElement("p");
-            caption.textContent = title;   // automatic: the video's real title from YT
-            // caption.textContent = "Watch our latest episode";   // or use a fixed text instead
-            link.appendChild(caption);
-            li.appendChild(link);
-            fragment.appendChild(li);
-        });
-
-        track.prepend(fragment);   // videos first, your manual slides after
-        }
-
-        // Copies the slides so the loop never shows a gap, then starts the animation
-        function startCarousel() {
-        if (!track.children.length) return;
-
-        const originals = [...track.children];
-        carouselSlideCount = originals.length;
-        const setWidth = track.offsetWidth;
-        const copies = Math.ceil(2000 / setWidth);
-
-        for (let i = 0; i < copies; i++) {
-            originals.forEach((item) => {
-            const clone = item.cloneNode(true);
-            clone.classList.add("is-clone");
-            clone.setAttribute("aria-hidden", "true");
-            const link = clone.querySelector("a");
-            if (link) link.tabIndex = -1;
-            track.appendChild(clone);
-            });
-        }
-
-        track.style.setProperty("--count", originals.length);
-        track.style.setProperty("--duration", `${originals.length * 5}s`);
-        carousel.classList.add("is-ready");
-        }
-
-        if (carousel && track) {
-        if (!reducedCarouselMotion) {
-            let dragState = null;
-            let suppressNextClick = false;
-            let carouselHintAnimation;
-            let swipeSettleAnimation;
-            let hintResetTimer;
-
-            function startCarouselHintAnimation() {
-            carouselHintAnimation = carouselHint?.animate(
-                [{ transform: "translateX(-6px)" }, { transform: "translateX(6px)" }],
-                { duration: 900, iterations: Infinity, direction: "alternate", easing: "ease-in-out" }
-            );
-            }
-
-            function updateHintThumb(clientX) {
-            const hintTrack = carouselHint?.querySelector(".carousel-hint-track");
-            if (!hintTrack) return;
-
-            const rect = hintTrack.getBoundingClientRect();
-            const thumbWidth = 32;
-            const thumbX = Math.max(0, Math.min(rect.width - thumbWidth, clientX - rect.left - thumbWidth / 2));
-            carouselHint.style.setProperty("--hint-thumb-x", `${thumbX}px`);
-            }
-
-            function finishHintSwipe() {
-            if (!carouselHint) return;
-
-            const hintTrack = carouselHint.querySelector(".carousel-hint-track");
-            if (hintTrack) {
-                carouselHint.style.setProperty("--hint-thumb-x", `${(hintTrack.clientWidth - 32) / 2}px`);
-            }
-            carouselHint.classList.remove("is-dragging");
-            window.clearTimeout(hintResetTimer);
-            hintResetTimer = window.setTimeout(() => {
-                carouselHint.style.removeProperty("--hint-thumb-x");
-                startCarouselHintAnimation();
-            }, 350);
-            }
-
-            startCarouselHintAnimation();
-
-            function resumeCarousel(position) {
-            const styles = getComputedStyle(carousel);
-            const slideWidth = parseFloat(styles.getPropertyValue("--slide-w"));
-            const slideGap = parseFloat(styles.getPropertyValue("--slide-gap"));
-            const loopDistance = carouselSlideCount * (slideWidth + slideGap);
-            const duration = carouselSlideCount * 5;
-            let normalizedPosition = position % loopDistance;
-
-            if (normalizedPosition > 0) normalizedPosition -= loopDistance;
-            track.style.animation = "none";
-            track.style.transform = `translate3d(${normalizedPosition}px, 0, 0)`;
-            void track.offsetWidth;
-            track.style.transform = "";
-            track.style.animation = "";
-            track.style.animationDelay = `${(normalizedPosition / loopDistance) * duration}s`;
-            }
-
-            function beginCarouselDrag(event) {
-            if (!carousel.classList.contains("is-ready") || event.button > 0) return;
-
-            const transform = getComputedStyle(track).transform;
-            const position = transform === "none" ? 0 : new DOMMatrixReadOnly(transform).m41;
-            swipeSettleAnimation?.cancel();
-            swipeSettleAnimation = null;
-            dragState = {
-                pointerId: event.pointerId,
-                startX: event.clientX,
-                startY: event.clientY,
-                lastX: event.clientX,
-                lastTime: event.timeStamp,
-                velocity: 0,
-                startPosition: position,
-                position,
-                dragging: false
-            };
-            track.style.animation = "none";
-            track.style.transform = `translate3d(${position}px, 0, 0)`;
-            }
-
-            carousel.addEventListener("pointerdown", beginCarouselDrag);
-            carouselHint?.addEventListener("pointerdown", beginCarouselDrag);
-
-            document.addEventListener("pointermove", (event) => {
-            if (!dragState || event.pointerId !== dragState.pointerId) return;
-
-            const deltaX = event.clientX - dragState.startX;
-            const deltaY = event.clientY - dragState.startY;
-            if (!dragState.dragging && (Math.abs(deltaY) > Math.abs(deltaX) || Math.abs(deltaX) < 6)) return;
-
-            if (!dragState.dragging) {
-                dragState.dragging = true;
-                window.clearTimeout(hintResetTimer);
-                carousel.classList.add("is-dragging");
-                carouselHintAnimation?.cancel();
-                carouselHint?.classList.add("is-dragging");
-            }
-
-            event.preventDefault();
-            const elapsed = Math.max(1, event.timeStamp - dragState.lastTime);
-            const instantVelocity = (event.clientX - dragState.lastX) / elapsed;
-            dragState.velocity = dragState.velocity * 0.65 + instantVelocity * 0.35;
-            dragState.lastX = event.clientX;
-            dragState.lastTime = event.timeStamp;
-
-            const styles = getComputedStyle(carousel);
-            const slideWidth = parseFloat(styles.getPropertyValue("--slide-w"));
-            const slideGap = parseFloat(styles.getPropertyValue("--slide-gap"));
-            const loopDistance = carouselSlideCount * (slideWidth + slideGap);
-            dragState.position = dragState.startPosition + deltaX;
-            while (dragState.position > 0) dragState.position -= loopDistance;
-            while (dragState.position <= -loopDistance) dragState.position += loopDistance;
-            track.style.transform = `translate3d(${dragState.position}px, 0, 0)`;
-            updateHintThumb(event.clientX);
-            });
-
-            function finishCarouselDrag(event) {
-            if (!dragState || event.pointerId !== dragState.pointerId) return;
-
-            const { position, velocity, dragging } = dragState;
-            dragState = null;
-            carousel.classList.remove("is-dragging");
-
-            if (dragging) {
-                const coast = Math.max(-180, Math.min(180, velocity * 180));
-                const targetPosition = position + coast;
-                swipeSettleAnimation?.cancel();
-                swipeSettleAnimation = track.animate(
-                [
-                    { transform: `translate3d(${position}px, 0, 0)` },
-                    { transform: `translate3d(${targetPosition}px, 0, 0)` }
-                ],
-                { duration: 380, easing: "cubic-bezier(0.22, 0.75, 0.25, 1)" }
-                );
-                swipeSettleAnimation.onfinish = () => {
-                swipeSettleAnimation.cancel();
-                swipeSettleAnimation = null;
-                resumeCarousel(targetPosition);
-                };
-                suppressNextClick = true;
-                window.setTimeout(() => { suppressNextClick = false; }, 400);
-                finishHintSwipe();
-            } else {
-                resumeCarousel(position);
-            }
-            }
-
-            document.addEventListener("pointerup", finishCarouselDrag);
-            document.addEventListener("pointercancel", finishCarouselDrag);
-            carousel.addEventListener("click", (event) => {
-            if (!suppressNextClick) return;
-            event.preventDefault();
-            event.stopImmediatePropagation();
-            suppressNextClick = false;
-            }, true);
-        }
-
-        addLatestVideos()
-            .catch((error) => console.error("Carousel: could not load YouTube videos", error))
-            .finally(startCarousel);   // runs even if YT fails, so your manual slides still show
-        }
-        </script>
 
         <script>
         // Animates each FAQ box open/closed instead of snapping instantly.
@@ -523,6 +270,7 @@
             }
 
             onClick(e) {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !this.el.animate) return;
             e.preventDefault();
             this.el.style.overflow = "hidden";
             if (this.isClosing || !this.el.open) {
