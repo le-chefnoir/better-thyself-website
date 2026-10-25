@@ -177,14 +177,14 @@
           </blockquote>
         </div>
         <div class="newsletter-box">
-          <form id="newsletter-form" method="POST" action="https://5fddb498.sibforms.com/serve/MUIFADj01xP2Xfj-9x1rWhJKBpjHErwmS96ZLuEfY71hJMDBTBzx4CvfeEw3pIqWHIow1AqLJ7xHdty323w4cxSll8Fsg5kkjJQ1UlPmneBoULJRQIXe5NNTfJRcukZduWs-PzrOSAKIM3aLHW2h0RuAQz4rW2xS1k1sh5uLVqTTYTcUq_3Z5D307SI4ADfruGHl-Nqn72ni9hmbmQ==">
+          <form id="newsletter-form" method="POST" aria-describedby="newsletter-help" action="https://5fddb498.sibforms.com/serve/MUIFADj01xP2Xfj-9x1rWhJKBpjHErwmS96ZLuEfY71hJMDBTBzx4CvfeEw3pIqWHIow1AqLJ7xHdty323w4cxSll8Fsg5kkjJQ1UlPmneBoULJRQIXe5NNTfJRcukZduWs-PzrOSAKIM3aLHW2h0RuAQz4rW2xS1k1sh5uLVqTTYTcUq_3Z5D307SI4ADfruGHl-Nqn72ni9hmbmQ==">
               <h3>JOIN THE NEWSLETTER</h3>
               <p>Our weekly briefing from bros working to better themselves. We share real wins
               from the brotherhood, spotlight members making a difference in their local
               communities, and passing practical advice to keep you locked in and your
               discipline on point.</p>
-              <b>Email address</b>
-              <input type="email" name="EMAIL" placeholder="you@example.com" required>
+              <label for="newsletter-email"><b>Email address</b></label>
+              <input id="newsletter-email" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
               <label class="newsletter-consent">
                 <input type="checkbox" name="OPT_IN" value="1" required>
                 I consent to the terms of the <a href="privacy.html"><span class="privacy-highlight">Privacy Policy</span></a>.
@@ -194,10 +194,8 @@
               <input type="hidden" name="locale" value="en">
 
               <button type="submit">Subscribe</button>
-        </div>
-            </form>
-
-          <p id="newsletter-message"></p>
+              <p id="newsletter-help">Continue to Brevo to complete your subscription. If you receive a confirmation email, follow its link to finish signing up.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -253,30 +251,6 @@
       if (window.location.hash === "#newsletter") centerNewsletter();
     });
 
-    const form = document.getElementById("newsletter-form");
-    const message = document.getElementById("newsletter-message");
-
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      message.className = "newsletter-status sending";
-      message.textContent = "Joining to the club...";
-
-      try {
-        await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          mode: "no-cors"
-        });
-
-        form.reset();
-        message.textContent = "You're officially in. Welcome to the Iron Sharpens Iron news!";
-      } catch (error) {
-        message.className = "newsletter-status error";
-        message.textContent =
-        "We couldn't complete your subscription. Please try again.";
-      }
-    });
   </script>
 
   <!-- Feet of the website -->
